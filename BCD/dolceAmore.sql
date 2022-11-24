@@ -7,13 +7,15 @@ create table user(
     user_name varchar(30) not null,
     nome varchar(30) not null, 
     email varchar(40) not null,
-    senha varchar(30) not null
+    senha varchar(30) not null,
+    favoritos varchar(40)
 );
 
 create table Publicacoes(
     id_publi integer not null auto_increment primary key,
     id_user integer not null,
     tema varchar(30) not null,
+    favoritos varchar(40),
     publicacoes varchar(250) not null,
 
     foreign key (id_user) references user(id_user)
