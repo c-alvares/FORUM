@@ -37,7 +37,13 @@ create table Respostas_resp(
     foreign key (id_resposta) references Respostas(id_resposta)
 );
 
-insert into user value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234');
-insert into Publicacoes value(default, 1,'Pães', 'Como posso fazer um pão ficar fofinho e leve?' );
+insert into user value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234', null);
+insert into Publicacoes value(default, 1,'Pães', null,'Como posso fazer um pão ficar fofinho e leve?' );
 insert into Respostas value(default, 1, 'É simples, o leite tem que estar morno, e deixar descansar por no minimo 1h30 ajuda bastante.');
 insert into Respostas_resp value(default, 1, 'Muito Obrigado!!');
+
+SELECT * FROM user;
+SELECT * FROM Publicacoes;
+SELECT * FROM Respostas;
+SELECT * FROM Respostas_resp;
+
