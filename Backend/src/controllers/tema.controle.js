@@ -1,8 +1,8 @@
-const Interligacao = require('../models/Publicacoes.model')
+const ligacao = require('../models/temas.model')
 const con = require('../DAO/forum.dao')
 
-const listarPublicacoes = (req, res) => {
-    con.query(Interligacao.readPublicacoes(req.body), (err, result) => {
+const listarTemas = (req, res) => {
+    con.query(ligacao.listarTemas(req.body), (err, result) => {
         if (err == null)
             res.json(result).end();
         else
@@ -10,8 +10,8 @@ const listarPublicacoes = (req, res) => {
     });
 }
 
-const createPublicacoes = (req, res) => {
-    con.query(Interligacao.createPublicacoes(req.body), (err, result) => {
+const criarTemas = (req, res) => {
+    con.query(ligacao.createTemas(req.body), (err, result) => {
         if(err == null) {
             res.status(201).json(req.body).end();
         }else {
@@ -20,8 +20,8 @@ const createPublicacoes = (req, res) => {
     });
 }
 
-const excluirPublicacao = (req, res) =>  {
-    con.query(Interligacao.deletePublicacoes(req.body), (err, result) =>  {
+const excluirTemas = (req, res) =>  {
+    con.query(ligacao.deleteTemas(req.body), (err, result) =>  {
         if(err == null) {
             res.status(200).json(req.body).end();
         }else {
@@ -30,8 +30,8 @@ const excluirPublicacao = (req, res) =>  {
     });
 };
 
-const editarPublicacao = (req, res) =>  {
-    con.query(Interligacao.editarPublicacoes(req.body), (err, result) =>  {
+const editarTemas = (req, res) =>  {
+    con.query(ligacao.editarTemas(req.body), (err, result) =>  {
         if(err == null) {
             if(result.affectedRows > 0)
             res.status(200).json(req.body).end();
@@ -46,8 +46,8 @@ const editarPublicacao = (req, res) =>  {
 
 
 module.exports = {
-    listarPublicacoes,
-    excluirPublicacao,
-    createPublicacoes,
-    editarPublicacao
+    listarTemas,
+    criarTemas,
+    excluirTemas,
+    editarTemas 
 }
