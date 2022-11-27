@@ -17,7 +17,7 @@ router.put('/editarPublicacoes', r.editarPublicacao);
 //Temas
 router.get('/listarTemas', r1.listarTemas);
 router.post('/criarTemas', r1.criarTemas);
-router.delete('/excluirTemas', r1.excluirTemas);
+// router.delete('/excluirTemas', r1.excluirTemas);
 router.put('/alterar', r1.editarTemas);
 
 //Favoritos

@@ -64,4 +64,3 @@ SELECT * FROM user;
 SELECT * FROM Publicacoes;
 SELECT * FROM Respostas;
 SELECT * FROM Respostas_resp;
-
