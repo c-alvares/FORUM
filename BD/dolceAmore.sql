@@ -12,8 +12,9 @@ create table user(
 
 create table temas (
     id integer auto_increment not null primary key,
-    nome varchar(150) not null
-) ;
+    nome varchar(150) not null,
+    foto varchar(40) not null
+);
 
 create table Publicacoes(
     id_publi integer not null auto_increment primary key,
@@ -49,7 +50,7 @@ create table Respostas_resp(
 
 insert into user value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234');
 insert into user value(default, 'Jurandir', 'Jurandir', 'jurandir@ig.com.br', 'mat1234');
-insert into temas value(default, 'Bolos'), (default, 'Tortas'), (default, 'Miojo');
+insert into temas value(default, 'Bolos', 'bolo.png'), (default, 'Tortas', 'torta.png'), (default, 'Miojo', 'miojo.png');
 insert into Publicacoes value(default, 1, 3, 'Porque meu miojo não fica soltinho ??' );
 insert into Publicacoes value(default, 2, 1, 'O bolo não cresceu, um ultraje ! quero reembolso' );
 insert into Publicacoes value(default, 2, 2, 'A massa queimou !' );
