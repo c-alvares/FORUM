@@ -1,4 +1,4 @@
-const Interligacao = require('../models/Publicacoes.model')
+const Interligacao = require('../models/publicacoes.model')
 const con = require('../DAO/forum.dao')
 
 const listarPublicacoes = (req, res) => {
