@@ -1,6 +1,9 @@
+require('dotenv').config();
+const PORT = process.env.PORT || 3000
 const express = require('express');
 const cors = require('cors');
 
+const user = require('./src/routes/user.routes')
 const temas = require('./src/routes/temas.routes');
 const publicacoes = require('./src/routes/publicacoes.routes');
 const respostas = require('./src/routes/respostas.routes');
@@ -10,12 +13,13 @@ const favoritos = require('./src/routes/favoritos.routes');
 const app = express()
     .use(express.json())
     .use(cors())
+    .use(user)
     .use(temas)
     .use(publicacoes)
     .use(respostas)
     .use(respostasRes)
     .use(favoritos)
 
-app.listen(3000, () => {
-    console.log("Respondendo na porta 3000");
+app.listen(PORT, () => {
+    console.log('Servido em execução na porta ' + PORT);
 });
