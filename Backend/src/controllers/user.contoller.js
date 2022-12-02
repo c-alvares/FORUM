@@ -1,5 +1,6 @@
 const user = require('../models/user.model');
-const con = require('../DAO/forum.dao')
+const con = require('../DAO/forum.dao');
+const jwt = require('jsonwebtoken');
 
 const criarUsuario = (req, res) => {
     con.query(user.novoUsuario(req.body), (err, result) => {
@@ -15,16 +16,24 @@ const criarUsuario = (req, res) => {
 
 
 const login = (req, res) => {
-    const user = req.body;
-
-    jwt.sign(user, process.env.KEY, { expiresIn: '1m' },function(err, token) {
-        if(err == null) {
-            user["token"] = token;
-            res.status(200).json(user).end();
+    con.query(user.login(req.body), (err, user) =>{
+        if (err == null) {
+        console.log(process.env.KEY)
+        console.log()
+            jwt.sign({...user[0]}, process.env.KEY, { expiresIn: '1m' },(error, token) => {
+                if(error == null) {
+                    user["token"] = token;
+                    res.status(200).json(user).end();
+                }else {
+                    console.log(error)
+                    res.status(404).json(error).end();
+                }
+            });
         }else {
-            res.status(404).json(err).end();
+            res.status(404).json(err).end();        
         }
-    });
+    }) 
+   
 }
 
 
