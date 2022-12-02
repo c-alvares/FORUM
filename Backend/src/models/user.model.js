@@ -1,17 +1,17 @@
 const novoUsuario = (model) => {
-    return `INSERT INTO user VALUES (DEFAULT,'${model.user_name}','${model.nome}','${model.email}','${model.senha}')`;
+    return `INSERT INTO users VALUES (DEFAULT,'${model.user_name}','${model.nome}','${model.email}','${model.senha}',${model.id_role})`;
 }
 
 const mostrarUsuarios = () => {
-    return `SELECT * FROM user`;
+    return `SELECT * FROM users`;
 }
 
 const dadosUsuario = (model) => {
-    return `SELECT * FROM user WHERE user_name = '${model.user_name}'`;
+    return `SELECT * FROM users WHERE user_name = '${model.user_name}'`;
 }
 
 const atualizarCadastro = (model) => {
-    return `UPDATE user SET 
+    return `UPDATE users SET 
                 nome = '${model.nome}',
                 senha = '${model.senha}'
             WHERE user_name = '${model.user_name}'`;

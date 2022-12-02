@@ -13,6 +13,21 @@ const criarUsuario = (req, res) => {
     });
 }
 
+
+const login = (req, res) => {
+    const user = req.body;
+
+    jwt.sign(user, process.env.KEY, { expiresIn: '1m' },function(err, token) {
+        if(err == null) {
+            user["token"] = token;
+            res.status(200).json(user).end();
+        }else {
+            res.status(404).json(err).end();
+        }
+    });
+}
+
+
 const listarUsuarios = (req, res) => {
     con.query(user.mostrarUsuarios(), (err, result) => {
         if (err == null)
@@ -49,6 +64,7 @@ const atualizarPerfil = (req, res) => {
 
 module.exports = {
     criarUsuario,
+    login,
     listarUsuarios,
     perfil,
     atualizarPerfil
