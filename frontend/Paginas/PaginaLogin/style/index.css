@@ -1,3 +1,5 @@
+/*Importar as fontes*/
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +10,6 @@ body {
     width: 1440px;
     height: 1024px;
     background-color: #FDF4DF;
-
 }
 
 nav {
@@ -52,32 +53,94 @@ input {
     border-radius: 25px;
 }
 
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+    margin: 25vh 7vw;
+}
+
 a {
     position: absolute;
     width: 134px;
     height: 19px;
-    left: 653px;
-    top: 614px;
+    left: 16vw;
+    top: 57vh;
 
     font-family: 'Berkshire Swash';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 19px;
-    /* identical to box height */
+    text-decoration: none;
 
     color: #000000;
 
     text-shadow: 0px 4px 4px rgba(255, 109, 109, 0.25);
 }
 
+
 button {
     position: absolute;
-    width: 185px;
+    width: 35%;
     height: 58px;
-    left: 633px;
-    top: 665px;
+    left: 14vw;
+    top: 65vh;;
 
-    background: #FDF4DF;
-    border-radius: 25px;
+     background-color: #FFE5F2;;
+    /* border-radius: 25px; */
+    transition: .4s ease-in;
+    z-index: 1;
+}
+
+button::before,
+button::after{
+    position: absolute;
+    content: "";
+    z-index: 1;
+    background-color: #ffc0cb;
+}
+
+button::after{
+    height: 100%;
+    left: -0%;
+    top: 0;
+    transform:skew(2deg);
+    transition-duration: 0.6s;
+    transform-origin: left top ;
+    width: 0;
+   
+}
+
+button:hover:after{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+#vazioEmail{
+    margin: 26vh -15vw 0 0vw ;
+    font-size: 12px;
+    color:red;
+}
+
+#vazioSenha{
+    margin: 42vh -15vw 0 0vw ;
+    font-size: 12px;
+    color:red;
+}
+
+#userErrado{
+    margin: 33vw -13vw 0 0;
+    font-size: 15px;
+}
+
+#glace{
+    position: absolute;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 85.5vh;
+    background-color: #d3fffb;
+    border-radius: 40% 40% 40% 40%;
 }

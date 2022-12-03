@@ -6,18 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../../../assets/logo.png">
     <link rel="stylesheet" href="../PaginaLogin/style/index.css">
+    <link rel="stylesheet" href="./node_modules/all-animation/dist/all-animation.css">
     <title>Tela de login</title>
 </head>
 <body>
     <header></header>
     <body>
         <nav>
+            <div id='glace'>
             <p>Olá, docinho</p>
-            <input type="text" name="email" id="email" placeholder="email ou usuario">
-            <input type="text" name="senha" id="senha" placeholder="senha">
-            <a>Esqueceu a senha?</a>
-            <button id="logar">Logar</button>
+            <div class='inputs'>
+                <input type="email" name="email" id="email" required placeholder=" Email ou Usuário">
+                 <p id="vazioEmail"></p>
+                <input type="password" required name="senha" id="senha" placeholder=" Senha">
+                <p id="vazioSenha"></p>
+            </div>
+            <a href='../esqueceuSenha;index.html'>Esqueceu a senha?</a>
+            <p id="userErrado"></p>
+            <button  id="logar">Logar</button>
+            </div
         </nav>
-    </body>
 </body>
+<script src='./script/index.js'></script>
 </html>
