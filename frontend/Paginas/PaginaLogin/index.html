@@ -21,11 +21,21 @@
                 <input type="password" required name="senha" id="senha" placeholder=" Senha">
                 <p id="vazioSenha"></p>
             </div>
-            <a href='../esqueceuSenha;index.html'>Esqueceu a senha?</a>
+            <a id='esqueceuSenha' onclick="AbrirModalRedefinirSenha()">Esqueceu a senha?</a>
             <p id="userErrado"></p>
-            <button  id="logar">Logar</button>
-            </div
+            <button id="logar">Logar</button>
+        </div>
         </nav>
+
+        <div class="abrir modal">
+            <div class="atualizar">
+                <!-- <img src="../../../assets/fechar.png" id='fechar'/> -->
+                <input type="text" placeholder="username" id="username">
+                <input type="text" placeholder="nome" id="nome">
+                <input type="text" placeholder="senha" id='senhaR'>
+            </div>
+            <button id="atualizar">Atualizar</button>
+        </div>
 </body>
 <script src='./script/index.js'></script>
 </html>
