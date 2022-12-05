@@ -1,5 +1,5 @@
-sacramento --
-tangerine --
+sacramento
+tangerine
 berkshire swash
 reenie beanie
 niconne

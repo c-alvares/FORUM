@@ -12,3 +12,38 @@ img {
     height: 3vh;
     width: 2vw;
 }
+.barra{
+    height: 8vh;
+    background-color: #ffe5f2;
+}
+.barra > h2 {
+    color: #9dcaff;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 2rem;
+    /* Fontes Importadas
+    sacramento
+    tangerine
+    berkshire swash
+    reenie beanie
+    niconne */
+}
+
+.card{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: flex-start;
+}
+
+.card1 > a {
+    font-size: 1.5rem;
+    font-family: 'Sacramento', cursive;
+    text-decoration: none;
+}
+
+#pic1 {
+    width: 15.3681vh;
+    height: 15.3681vh;
+    border-radius: 100%;
+    border: 1px solid blue;     
+}
