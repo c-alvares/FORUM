@@ -15,10 +15,9 @@
 </head>
 <body>
     <header>
-        <img id="menu" src="../../../assets/menu.png" alt='menu'/>
+        <img id="menu" onclick="AbrirModalMenu" src="../../../assets/menu.png" alt='menu'/>
         <img id="logo" src="../../../assets/logo.png" alt="logo.png">
         <div id="barraBusca">
-            <!-- <img id="lupa" src="../../../assets/lupa.png" alt="lupa" id="lupa"> -->
             <input id="barra" type="search" name="buscar" id="busca" placeholder="      Pesquisar">
         </div>
         <button id="btCriarTema">Criar Tema</button>
@@ -32,8 +31,13 @@
             <Img id="pic1" src="../../../assets/avatar.png" alt="Ícone do Tema"/>
             <a>Teste</a>
         </div>
-       </div> 
-    </main>   
+       </div>
+    </main>
+    <div id="menuLateral" class="modal">
+        <div class="content">
+
+        </div>
+    </div>  
 </body>
-<script src="script.js"></script>
+<script src="./script/homeScript.js"></script>
 </html>
