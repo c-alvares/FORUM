@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: antiquewhite;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+body{
+    background-color: rgb(237, 207, 168);
+    width: 100%;
+}
+
+nav {
+    text-align: center;
+    margin: 5%;
+    background-color: rgb(250, 234, 181);
+    height: 100%;
+    width: 20vw;
+
+    position: absolute;
+    top: -2.9vw;
+    left: 35vw;
+}
+
+img{
+    height: 20vh;
+    width: 10vw;
+}
+
+main {
+    margin-top: 120px;
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#favoritos{
+    width: 10vw;
+    height: 2vw;
+    border-radius: 15%;
+    background-color: pink;
+    color: black;
+    margin-left: 5vw;
+    margin-top: 10vh;
+}
+
+#editar{
+    width: 10vw;
+    height: 2vw;
+    border-radius: 15%;
+    background-color: rgb(251, 232, 122);
+    color: black;
+    margin-left: 5vw;
+    margin-top: 2vh;
+}
+
+#editar:hover{
+    transition: ease-in, 0.2s;
+    background-color: rgba(246, 234, 70, 0.906);
+    cursor: pointer;
+}
+
+#favoritos:hover{
+    transition: ease-in, 0.4s;
+    background-color: rgb(251, 112, 247);
+    cursor: pointer;
+}
+#redes > img{
+    width: 2vw;
+    height: 2vw;
+    margin-top: 18vh;
+    margin-left: 10px;
+
+}
+
+input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgb(65, 65, 65);
+    border-radius: 10%;
+    background-color: antiquewhite;
+    padding: 4px;
+    width: 10vw;
+}
+
+.model {
+    display: none;
+    visibility: hidden;
+}
+
+#InputUsername,
+#Inputnome,
+#InputEmail,
+#senhaR,
+#senhaCon{
+    width: 8vw;
+    height: 4vh;
+    margin-top: 6px;
+    
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(252, 156, 156, 0.25);
+    border-radius: 25px;
+}
+
+li{
+    list-style: none;
+    margin-top: -5vh;
+} 
+
+#atualizar{
+    width: 8vw;
+    height: 5.5vh;
+    margin: 69vh 47vw;
+    position: absolute;
+    cursor: pointer;
+} 
+ .atualizar{
+    background-color: #fff8e5;
+    height: 45vh;
+    width: 30vw;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 32vh 36vw;
+    border: 5px solid #f6ec98;
+    border-radius: 50px;
+
+    position: absolute;
+}  
+
+#fechar{
+    height: 2vh;
+    width: 1vw;
+    position: absolute;
+    top: 3.5vh;
+    left: 27vw;
+    cursor: pointer;
+}
+
+#fecharFav{
+    height: 2vh;
+    width: 1vw;
+    position: absolute;
+    top: 3.5vh;
+    left: 27vw;
+    cursor: pointer;
+}
+
+.divFavoritos{
+    height: 80vh;
+    width: 30vw;
+    position: absolute;
+    background-color: #fbf0d0;
+    margin: 3% 35%;
+    border-radius: 10%;
+    
+}
+
+ .abrir{
+   box-shadow: 1px 1px 1px 1px black;
+    border-radius: 10px;
+    height: 10vh;
+    margin-top: 10vh;
+    width: 28vw;
+    margin-left: 20px;
+} 
+
+.abrir > div{
+    text-align: center;
+    padding: 10px;
+} 
+
+#avatarU{
+    height: 20px;
+    width: 20px;
+}
+
+.imgU{
+    display: flex;
+    gap: 40%;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/index.css">
+    <title>Favoritos</title>
+</head>
+
+<body onload="carregar()">
+    <header>
+        <a href="">Voltar</a>
+    </header>
+    <nav>
+        <img src="../../../assets/avatar.png" alt="avatar" id="avatar" />
+        <main>
+            <p>Username:
+                <input title="username" type="text" id="username" disabled>
+            </p>
+            <p>Nome:
+                <input title="nome" type="text" id="nome" disabled />
+            </p>
+            <p>Email:
+                <input title="email" type="email" id="email" disabled>
+            </p>
+            <p>Senha:
+                <input title="senha" type="password" id="senha" disabled>
+            </p>
+
+            <button id="editar">Editar</button>
+            <button id="favoritos">Favoritos</button>
+            <div id="redes">
+                <img src="../../../assets/instagram.png" alt="instagram">
+                <img src="../../../assets/pinterest.png" alt="pinterst">
+            </div>
+        </main>
+    </nav>
+
+    <div class="abrirE model">
+        <div class="atualizar">
+            <img src="../../../assets/fechar.png" id='fechar' alt='fechar' />
+            <li>Por favor, atualize seus dados:</li>
+            <input type="text" placeholder="username" id="InputUsername">
+            <input type="text" placeholder="nome" id="Inputnome">
+            <input type="text" placeholder="senha" id='senhaR'>
+            <input type="text" placeholder="Confirmar senha" id='senhaCon'>
+        </div>
+       <input type="button" id="atualizar" title="atualizar" value="Atualizar">
+    </div>
+
+    <div class="divFavoritos model">
+        <img src="../../../assets/fechar.png" id='fecharFav' alt='fechar' />
+        <div class="abrir model">
+            <div class="imgU">
+                <img alt="avatar" id="avatarU" />
+                <div id="user"></div>
+            </div>
+            <div id="publi"></div>
+        </div>
+    </div>
+
+
+</body>
+<script src="./scripts/index.js"></script>
+
+</html>
