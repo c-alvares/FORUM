@@ -1,19 +1,13 @@
-const AbrirModalMenu = () => {
-    const modal = document.querySelector('.modal');
-    const actualStyle = modal.style.display
-    if(actualStyle == 'block') {
-        modal.style.display = 'none';
-    }else {
-        modal.style.display = 'block';
-    }
+const abrirModalMenu = () => {
+    const modal = document.querySelector('.menuLateral');
+    modal.classList.remove('modal');
 }
 
-const btn = document.querySelector('#menu')
-btn.addEventListener('click', AbrirModalMenu)
+const fecharModalMenu = () => {
+    const modal = document.querySelector('.menuLateral');
+    modal.classList.add('modal');
+}
 
-window.onclick = function(event) {
-    const modal = document.querySelector('.modal');
-    if (event.target == modal) {
-        AbrirModalMenu()
-    }
+const modalCriarTema = () => {
+    console.log("teste")
 }

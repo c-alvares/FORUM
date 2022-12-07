@@ -15,12 +15,12 @@
 </head>
 <body>
     <header>
-        <img id="menu" onclick="AbrirModalMenu" src="../../../assets/menu.png" alt='menu'/>
+        <img id="menu" onclick="abrirModalMenu()" src="../../../assets/menu.png" alt='menu'/>
         <img id="logo" src="../../../assets/logo.png" alt="logo.png">
         <div id="barraBusca">
             <input id="barra" type="search" name="buscar" id="busca" placeholder="      Pesquisar">
         </div>
-        <button id="btCriarTema">Criar Tema</button>
+        <button onclick="modalCriarTema()" id="btCriarTema">Criar Tema</button>
     </header>
     <main>
        <div class="barraSuperior">
@@ -33,11 +33,21 @@
         </div>
        </div>
     </main>
-    <div id="menuLateral" class="modal">
-        <div class="content">
-
-        </div>
-    </div>  
+    <div class="menuLateral modal">
+        <img id="avatar" src="../../../assets/avatar.png" alt="avatar.png">
+        <img id="fechar" onclick="fecharModalMenu()" src="../../../assets/fechar.png" alt="fechar.png">
+        <div class="menuItens">Editar Perfil</div>
+        <div class="menuItens">Favoritos</div>
+        <div class="menuItens">Sobre Nós</div>
+        <div class="menuItens">Sair</div>
+        <img class="redeSocial" src="../../../assets/instagram.png" alt="instagram.png">
+        <img class="redeSocial" src="../../../assets/pinterest.png" alt="pinteres.png">
+    </div>
+    <div class="modalTema modal1">
+        <input type="text" placeholder="Digite um tema">
+        <input type="image" alt="insira imagem">
+        <button>Criar</button>
+    </div>
 </body>
 <script src="./script/homeScript.js"></script>
 </html>
