@@ -17,9 +17,11 @@ fetch('http://localhost:3000/forum/listar')
             btnLogar.addEventListener('click', () => {
                 if (InputEmail.value.lenght < 0) {
                     InputsVazioEmail.innerHTML = "Por favor, preencha o campo acima!"
+                    nav.classList.add('a-jump-bounce')
                 }
                 else if (InputSenha.value.lenght < 0) {
                     InputsVaziosSenha.innerHTML = "Por favor, preencha o campo acima!"
+                    nav.classList.add('a-jump-bounce')
                 } else {
                     if (InputEmail.value == login.user_name || InputEmail.value == login.email && InputSenha.value == login.senha) {
                         certo = true;

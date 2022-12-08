@@ -17,29 +17,32 @@ body{
     width: 100%;
 }
 
-/* nav {
-    text-align: center;
-    margin: 5%;
-    background-color: rgb(250, 234, 181);
-    height: 100%;
-    width: 20vw;
-
-    position: absolute;
-    top: -2.9vw;
-    left: 35vw;
-} */
-
 img{
     height: 20vh;
     width: 10vw;
+}
+p{
+    text-align: center;
+    margin: 20px;
+
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+a> img:hover{
+    cursor: pointer;
 }
 
 
 #redes > img{
     width: 2vw;
     height: 2vw;
-    margin-top: 18vh;
-    margin-left: 10px;
+    margin-top: 47vh;
+    margin-left: 119px;
 }
 
 .model {
@@ -62,18 +65,19 @@ img{
     width: 30vw;
     position: absolute;
     background-color: #fbf0d0;
-    margin: 3% 35%;
+    margin: 4% 37%;
     border-radius: 10%;
   
 }
 
  .abrir{
-   box-shadow: 1px 1px 1px 1px black;
+    box-shadow: 1px 1px 1px 1px black;
     border-radius: 10px;
     height: 10vh;
     margin-top: 10vh;
     width: 28vw;
-    margin-left: 20px;
+    margin-left: 15px;
+
 } 
 
 .abrir > div{

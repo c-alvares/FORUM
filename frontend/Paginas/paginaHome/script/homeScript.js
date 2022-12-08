@@ -3,15 +3,20 @@ let inputImg = document.querySelector('#inputImg');
 let btCriarTema = document.querySelector('#criar');
 
 btCriarTema.addEventListener('click', () => {
-    let options = {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: {"nome":inputTema.value,"foto":inputImg.value}
-      };
-      console.log(options);
+      let criarTemas = {
+        "tema": inputTema.value,
+        "imagem": inputImg.value
+    }
       
-      fetch('http://localhost:3000/criarTemas', options)
-        .then(response => response.json())
+      fetch('http://localhost:3000/criarTemas', {
+        'method': 'POST',
+        'headers': {
+            'Content-Type': 'application/json'
+        },
+        'body': JSON.stringify(criarTemas)
+      });
+      
+        .then(response => response.status)
         .then(response => {
             if( response == 201 ) {
                 alert("Tema cadastrado com sucesso")

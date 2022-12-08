@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: antiquewhite;
+    height: 8vh;
+    text-align: center;
+    padding: 10px;
+}
+
+header > p {
+    font-size: 20pt;
+    font-weight: 600;
+    color: black;
+}
+
+main{
+    background-color: #fbf0d0;
+    width: 30vw;
+    height: 94vh;
+    margin-left: 35vw;
+}
+.about{
+    width: 23vw;
+    height: 85vh;
+    background-color: #e3d1b1;
+    padding: 20px 20px;
+    margin-left: 3.5vw;
+}
+
+.about > img {
+    margin-left: 6vw;
+}
+
+.about > h2{
+    font-size: 600;
+    color: #ff80f2;
+    text-align: center;
+    text-decoration: underline overline dotted #FDF4DF;
+    text-emphasis: double-circle #ff70ff;
+    margin:10px;
+}
+body{
+    background-color: rgb(237, 207, 168);
+    width: 100%;
+}
+
+
