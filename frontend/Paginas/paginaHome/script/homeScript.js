@@ -17,3 +17,4 @@ const fecharModalTema = () => {
     let modal = document.querySelector('.modalTema');
     modal.classList.add('modal1');
 }
+
