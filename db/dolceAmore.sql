@@ -13,6 +13,7 @@ create table users(
     nome varchar(30) not null, 
     email varchar(40) not null,
     senha varchar(30) not null,
+    img varchar(30),
     id_role integer not null,
 
     CONSTRAINT fk_role foreign key (id_role) references cargos(id)
@@ -61,8 +62,8 @@ insert into cargos value (default, "user");
 SELECT * FROM cargos;
 
 
-insert into users value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234', 1 );
-insert into users value(default, 'Jurandir', 'Jurandir', 'jurandir@ig.com.br', 'mat1234', 2);
+insert into users value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234', 'matt.png', 1 );
+insert into users value(default, 'Jurandir', 'Jurandir', 'jurandir@ig.com.br', 'mat1234', "jurandir.png",  2);
 
 SELECT * FROM users;
 

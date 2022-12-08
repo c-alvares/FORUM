@@ -1,5 +1,5 @@
 const novoUsuario = (model) => {
-    return `INSERT INTO users VALUES (DEFAULT,'${model.user_name}','${model.nome}','${model.email}','${model.senha}',${model.id_role})`;
+    return `INSERT INTO users VALUES (DEFAULT,'${model.user_name}','${model.nome}','${model.email}','${model.senha}', '${model.img}', ${model.id_role})`;
 }
 
 const login = (model) => {
@@ -17,7 +17,8 @@ const dadosUsuario = (model) => {
 const atualizarCadastro = (model) => {
     return `UPDATE users SET 
                 nome = '${model.nome}',
-                senha = '${model.senha}'
+                senha = '${model.senha}',
+                img = '${model.img}'
             WHERE user_name = '${model.user_name}'`;
 }
 

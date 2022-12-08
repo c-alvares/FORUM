@@ -99,7 +99,8 @@ input{
 #Inputnome,
 #InputEmail,
 #senhaR,
-#senhaCon{
+#senhaCon,
+#img{
     width: 8vw;
     height: 4vh;
     margin-top: 6px;

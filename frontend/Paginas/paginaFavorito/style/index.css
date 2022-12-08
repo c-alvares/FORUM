@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: antiquewhite;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+body{
+    background-color: rgb(237, 207, 168);
+    width: 100%;
+}
+
+/* nav {
+    text-align: center;
+    margin: 5%;
+    background-color: rgb(250, 234, 181);
+    height: 100%;
+    width: 20vw;
+
+    position: absolute;
+    top: -2.9vw;
+    left: 35vw;
+} */
+
+img{
+    height: 20vh;
+    width: 10vw;
+}
+
+
+#redes > img{
+    width: 2vw;
+    height: 2vw;
+    margin-top: 18vh;
+    margin-left: 10px;
+}
+
+.model {
+    display: none;
+    visibility: hidden;
+}
+
+
+#fecharFav{
+    height: 2vh;
+    width: 1vw;
+    position: absolute;
+    top: 3.5vh;
+    left: 27vw;
+    cursor: pointer;
+}
+
+.divFavoritos{
+    height: 80vh;
+    width: 30vw;
+    position: absolute;
+    background-color: #fbf0d0;
+    margin: 3% 35%;
+    border-radius: 10%;
+  
+}
+
+ .abrir{
+   box-shadow: 1px 1px 1px 1px black;
+    border-radius: 10px;
+    height: 10vh;
+    margin-top: 10vh;
+    width: 28vw;
+    margin-left: 20px;
+} 
+
+.abrir > div{
+    text-align: center;
+    padding: 10px;
+} 
+
+#avatarU{
+    height: 20px;
+    width: 20px;
+}
+
+.imgU{
+    display: flex;
+    gap: 40%;
+}

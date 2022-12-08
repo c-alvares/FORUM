@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/index.css">
-    <title>Favoritos</title>
+    <title>Perfil</title>
 </head>
 
 <body onload="carregar()">
     <header>
-        <a href="">Voltar</a>
+        <a href="../paginaHome/home.html">Voltar</a>
     </header>
     <nav>
         <img src="../../../assets/avatar.png" alt="avatar" id="avatar" />
@@ -44,8 +44,9 @@
             <li>Por favor, atualize seus dados:</li>
             <input type="text" placeholder="username" id="InputUsername">
             <input type="text" placeholder="nome" id="Inputnome">
-            <input type="text" placeholder="senha" id='senhaR'>
-            <input type="text" placeholder="Confirmar senha" id='senhaCon'>
+            <input type="password" placeholder="senha" id='senhaR'>
+            <input type="password" placeholder="Confirmar senha" id='senhaCon'>
+            <input type="text" placeholder="Imagem" id='img'>
         </div>
        <input type="button" id="atualizar" title="atualizar" value="Atualizar">
     </div>
@@ -53,7 +54,7 @@
     <div class="divFavoritos model">
         <img src="../../../assets/fechar.png" id='fecharFav' alt='fechar' />
         <div class="abrir model">
-            <!-- <div class="MostrarFavoritos"></div> -->
+           
             <div class="imgU">
                 <img alt="avatar" id="avatarU" />
                 <div id="user"></div>
