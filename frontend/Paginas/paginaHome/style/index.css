@@ -139,6 +139,11 @@ header{
     font-family: 'Niconne', cursive;
     font-size: 1.25rem;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    
+}
+.menuItens > a {
+    text-decoration: none;
+    color: #000000
 }
 
 
@@ -160,16 +165,44 @@ header{
 }
 
 .modalTema{
-    width: 20vw;
-    height:50vh;
+    width: 30vw;
+    height:25vh;
     position: absolute;
+    top: 25%;
+    left: 40%;
 
-    background-color: #fbf4f9dc;
+    background-color: #fbf4f9;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+ .modalTema > input {
+    width: 15vw;
+    margin-top: 3vh;
+ }
+
+#criar{
+    height: 3.395993836671803vh;
+    width: 7.71303074670571vw;
+    background-color: #FCEFDA;
+    border: none;
+    border-radius: 2vw;
+    color: #9DCAFF;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 1rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    margin-top: 4vh;
+}
+
+#criar:hover {
+    background-color: #ffe5f2;
+    color: #D3FFFB;
 }
 
 .modal1 {
-    display: none;
-    visibility: hidden;
+    /* display: none;
+    visibility: hidden; */
 }
