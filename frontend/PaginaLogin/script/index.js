@@ -1,18 +1,19 @@
-var InputEmail = document.querySelector('#email')
-var InputSenha = document.querySelector('#senha')
-var nav = document.querySelector('nav')
-var btnLogar = document.querySelector('#logar')
-var InputsVazioEmail = document.querySelector('#vazioEmail')
-var InputsVaziosSenha = document.querySelector('#vazioSenha')
-var loginErrado = document.querySelector('#userErrado')
-var abrirModal = document.querySelector('.abrir')
-var fecharModal = document.querySelector('#fechar')
+let InputEmail = document.querySelector('#email')
+let InputSenha = document.querySelector('#senha')
+let nav = document.querySelector('nav')
+let btnLogar = document.querySelector('#logar')
+let InputsVazioEmail = document.querySelector('#vazioEmail')
+let InputsVaziosSenha = document.querySelector('#vazioSenha')
+let loginErrado = document.querySelector('#userErrado')
+let abrirModal = document.querySelector('.abrir')
+let fecharModal = document.querySelector('#fechar')
 
-var certo = false;
+let certo = false;
 
 fetch('http://localhost:3000/forum/listar')
     .then(res => { return res.json() })
     .then(re => {
+        console.log(re)
         re.forEach(login => {
             btnLogar.addEventListener('click', () => {
                 if (InputEmail.value.lenght < 0) {
@@ -43,11 +44,11 @@ fetch('http://localhost:3000/forum/listar')
 function AbrirModalRedefinirSenha() {
     abrirModal.classList.remove('modal')
     logar.style = 'display: none; visibility: hidden'
-    var ConfirmarSenha = document.querySelector('#senhaCon')
-    var username = document.querySelector('#username')
-    var name = document.querySelector('#nome')
-    var senha = document.querySelector('#senhaR')
-    var atualizar = document.querySelector('#atualizar')
+    let ConfirmarSenha = document.querySelector('#senhaCon')
+    let username = document.querySelector('#username')
+    let name = document.querySelector('#nome')
+    let senha = document.querySelector('#senhaR')
+    let atualizar = document.querySelector('#atualizar')
 
     atualizar.addEventListener('click', () => {
         if (username.value == '' && name.value == '' && senha.value  == '' && ConfirmarSenha.value == '') {

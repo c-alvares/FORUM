@@ -1,8 +1,9 @@
 let inputTema = document.querySelector('#inputTema');
 let inputImg = document.querySelector('#inputImg');
 let btCriarTema = document.querySelector('#criar');
-var avatar = document.querySelector('#avatar')
+let avatar = document.querySelector('#avatar')
 let listaCards = document.querySelector('.listaCards');
+let barraPesquisa = document.querySelector('#barra');
 
 btCriarTema.addEventListener('click', () => {
   let criarTemas = {
@@ -39,7 +40,7 @@ function carregarCards() {
     .then(response => response.json())
     .then(response => {
       response.forEach(tema => {
-        var abrirDiv = document.querySelector('.card1').cloneNode(true)
+        let abrirDiv = document.querySelector('.card1').cloneNode(true)
         abrirDiv.classList.remove('clone1')
         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
         abrirDiv.querySelector('#tema').innerHTML = tema.nome
@@ -61,7 +62,7 @@ function carregarCards() {
     .then(response => response.json())
     .then(response => {
       response.forEach(p => {
-        var publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+        let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
         publicacoes.classList.remove('modal');
         publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
 
