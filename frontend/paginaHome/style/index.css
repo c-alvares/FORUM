@@ -78,7 +78,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right: 46vw;
+    margin-right: 55vw;
 }
 
 .card1 {
@@ -87,6 +87,21 @@ header {
     margin: 2vh 0vh;
     width: 10vw;
 }
+
+nav > .publicacoes{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -40vh;
+    margin-left: 40vw;
+    border: none;
+    width: 20vw;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px #000000;
+}
+
+
 
 .card1>a {
     font-size: 1.5rem;
@@ -125,6 +140,14 @@ header {
 #avatar {
     width: 7.5vw;
     margin: 7.5vh 0vh;
+    border-radius: 100vw;
+    background-color: #ffe5f2;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#avatarPubli {
+    width: 2vw;
+    margin: 2vh 0vh;
     border-radius: 100vw;
     background-color: #ffe5f2;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));

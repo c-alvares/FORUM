@@ -54,18 +54,23 @@ function carregarCards() {
     .then(response => {
       response.forEach(usuario => {
         avatar.src = '../../../assets/' + usuario.img
-      })
-    })
 
-    fetch('http://localhost:3000/listarPublicacoes')
-    .then(response => response.json())
-    .then(response => {
-      response.forEach(p => {
-        var publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-        publicacoes.classList.remove('modal');
-        publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+        fetch('http://localhost:3000/listarPublicacoes')
+          .then(response => response.json())
+          .then(response => {
+            response.forEach(p => {
+              var publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+              publicacoes.classList.remove('modal');
+              publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+              if (usuario.id_user == p.id_user) {
+                publicacoes.querySelector('#avatarPubli').src = '../../../assets/' + usuario.img;
+                publicacoes.querySelector('#userPubli').innerHTML = usuario.user_name;
+                document.querySelector('nav').appendChild(publicacoes)
+              }
 
-        document.querySelector('.listaCards').appendChild(publicacoes)
+
+            })
+          })
       })
     })
 }
