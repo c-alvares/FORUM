@@ -10,6 +10,18 @@ const listarTemas = (req, res) => {
     });
 }
 
+const pesquisarTemas = (req, res) => {
+    con.query(ligacao.buscarTemas(req.body), (err, result) => {
+        if (err == null)
+            if (result.length > 0)
+                res.json(result).end();
+            else
+                res.status(404).end();
+        else
+            res.status(500).end();
+    });
+}
+
 const criarTemas = (req, res) => {
     con.query(ligacao.createTemas(req.body), (err, result) => {
         if(err == null) {
@@ -47,6 +59,7 @@ const editarTemas = (req, res) =>  {
 
 module.exports = {
     listarTemas,
+    pesquisarTemas,
     criarTemas,
     excluirTemas,
     editarTemas 

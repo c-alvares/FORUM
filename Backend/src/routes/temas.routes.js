@@ -4,6 +4,7 @@ const router = express.Router();
 const tema = require('../controllers/tema.controle')
 
 router.get('/listarTemas', tema.listarTemas);
+router.get('/pesquisarTemas', tema.pesquisarTemas);
 router.post('/criarTemas', tema.criarTemas);
 router.delete('/excluirTemas', tema.excluirTemas);
 router.put('/alterar', tema.editarTemas);
