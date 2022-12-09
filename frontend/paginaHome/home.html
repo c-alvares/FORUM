@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +10,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Niconne&family=Reenie+Beanie&family=Sacramento&family=Tangerine&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Niconne&family=Reenie+Beanie&family=Sacramento&family=Tangerine&display=swap"
+        rel="stylesheet">
 
     <title>Home</title>
 </head>
+
 <body onload="carregarCards()">
     <header>
-        <img id="menu" onclick="abrirModalMenu()" src="../../../assets/menu.png" alt='menu'/>
+        <img id="menu" onclick="abrirModalMenu()" src="../../../assets/menu.png" alt='menu' />
         <img id="logo" src="../../../assets/logo.png" alt="logo.png">
         <div id="barraBusca">
             <input id="barra" type="search" name="buscar" id="busca" placeholder="      Pesquisar">
@@ -23,24 +27,32 @@
         <button onclick="modalCriarTema()" id="btCriarTema">Criar Tema</button>
     </header>
     <main>
-       <div class="barraSuperior">
-        <h2>Escolha um tema ou crie um novo</h2>
-       </div>
-       <div class="listaCards">
-        <div class="card1 clone1">
-            <Img id="pic1" alt="Ícone do Tema"/>
-            <a id="tema">Teste</a>
+        <div class="barraSuperior">
+            <h2>Escolha um tema ou crie um novo</h2>
         </div>
-        <div class="publicacoes modal">
-            <p id="publicacao">r</p>
-        </div>
-       </div>
+        <nav class="perguntasTemas">
+            <div class="listaCards">
+                <div class="card1 clone1">
+                    <Img id="pic1" alt="Ícone do Tema" />
+                    <a id="tema">Teste</a>
+                </div>
+            </div>
+            <div class="publicacoes modal">
+                <div id="usuario">
+                    <img id="avatarPubli" alt="avatar.png">
+                    <p id="userPubli"></p>
+                </div>
+               
+                <p id="publicacao"></p>
+            </div>
+        </nav>
+
     </main>
     <div class="menuLateral modal">
         <img id="avatar" alt="avatar.png">
         <img class="fechar" onclick="fecharModalMenu()" src="../../../assets/fechar.png" alt="fechar.png">
         <div class="menuItens"><a href="../paginaPerfil/index.html">Editar Perfil</a></div>
-        <div class="menuItens"><a href = '../paginaFavorito/index.html'>Favoritos</a></div>
+        <div class="menuItens"><a href='../paginaFavorito/index.html'>Favoritos</a></div>
         <div class="menuItens"><a href='../paginaSobreNos/index.html'>Sobre Nós</a></div>
         <div class="menuItens"><a href='../paginaLogin/index.html'>Sair</a></div>
         <img id="instagram" class="redeSocial" src="../../../assets/instagram.png" alt="instagram.png">
@@ -55,4 +67,5 @@
 </body>
 <script src="./script/homeScript.js"></script>
 <script src="../global/globalScript.js"></script>
+
 </html>

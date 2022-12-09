@@ -55,9 +55,8 @@ function carregarCards() {
     .then(response => {
       response.forEach(usuario => {
         avatar.src = '../../../assets/' + usuario.img
-      })
-    })
 
+<<<<<<< HEAD
     fetch('http://localhost:3000/listarPublicacoes')
     .then(response => response.json())
     .then(response => {
@@ -65,8 +64,24 @@ function carregarCards() {
         let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
         publicacoes.classList.remove('modal');
         publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+=======
+        fetch('http://localhost:3000/listarPublicacoes')
+          .then(response => response.json())
+          .then(response => {
+            response.forEach(p => {
+              var publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+              publicacoes.classList.remove('modal');
+              publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+              if (usuario.id_user == p.id_user) {
+                publicacoes.querySelector('#avatarPubli').src = '../../../assets/' + usuario.img;
+                publicacoes.querySelector('#userPubli').innerHTML = usuario.user_name;
+                document.querySelector('nav').appendChild(publicacoes)
+              }
+>>>>>>> d1afb1e31bd0c85b74710287fd3e2b771beb092a
 
-        document.querySelector('.listaCards').appendChild(publicacoes)
+
+            })
+          })
       })
     })
 }
