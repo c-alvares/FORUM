@@ -2,6 +2,10 @@ const listarTemas = () => {
     return 'SELECT * FROM temas;'
 }
 
+const buscarTemas = (model) => {
+    return `SELECT * FROM temas WHERE nome LIKE '%${model.nome}%'`;
+}
+
 const createTemas  = (model) => {
     return `INSERT INTO temas VALUES (default, '${model.nome}', '${model.foto}');`
 }
@@ -16,6 +20,7 @@ const editarTemas = (model) => {
 
 module.exports = {
     listarTemas,
+    buscarTemas,
     createTemas,
     deleteTemas,
     editarTemas
