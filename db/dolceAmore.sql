@@ -7,7 +7,7 @@ create table cargos(
     tipo varchar(20) not null
 );
 
-create table users(
+create table user(
     id_user integer auto_increment not null primary key,
     user_name varchar(30) not null,
     nome varchar(30) not null, 
@@ -30,14 +30,14 @@ create table publicacoes(
     id_user integer not null,
     id_tema integer not null,
     publicacoes varchar(250) not null,
-    CONSTRAINT fk_user foreign key (id_user) references users(id_user),
+    CONSTRAINT fk_user foreign key (id_user) references user(id_user),
     CONSTRAINT fk_tema foreign key (id_tema) references temas(id)
 );
 
 create table favoritos(
     id_user integer not null,
     id_publi integer not null,
-    CONSTRAINT fk_userf foreign key (id_user) references users(id_user),
+    CONSTRAINT fk_userf foreign key (id_user) references user(id_user),
     CONSTRAINT fk_publif foreign key (id_publi) references publicacoes(id_publi)
 
 );
@@ -62,18 +62,17 @@ insert into cargos value (default, "user");
 SELECT * FROM cargos;
 
 
-insert into users value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234', 'matt.png', 1 );
-insert into users value(default, 'Jurandir', 'Jurandir', 'jurandir@ig.com.br', 'mat1234', "jurandir.png",  2);
+insert into user value(default, 'MMA12', 'Matheus', 'matheus@gmail.com', 'mat1234', 'matt.png', 1 );
+insert into user value(default, 'Jurandir', 'Jurandir', 'jurandir@ig.com.br', 'mat1234', "jurandir.png",  2);
 
-SELECT * FROM users;
+SELECT * FROM user;
 
 
-insert into temas value(default, 'Bolos', 'bolo.png'), (default, 'Tortas', 'torta.png'), (default, 'Miojo', 'miojo.png');
+insert into temas value(default, 'Bolos', 'bolo.png'), (default, 'Tortas', 'torta.png');
 
 SELECT * FROM temas;
 
 
-insert into publicacoes value(default, 1, 3, 'Porque meu miojo não fica soltinho ??' );
 insert into publicacoes value(default, 2, 1, 'O bolo não cresceu, um ultraje ! quero reembolso' );
 insert into publicacoes value(default, 2, 2, 'A massa queimou !' );
 
@@ -92,7 +91,7 @@ insert into favoritos value(1,2);
 SELECT * FROM favoritos;
 
 
-SELECT * FROM users INNER JOIN favoritos ON users.id_user = favoritos.id_user;
+SELECT * FROM user INNER JOIN favoritos ON user.id_user = favoritos.id_user;
 
 
 

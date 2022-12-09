@@ -4,6 +4,9 @@ let btCriarTema = document.querySelector('#criar');
 let avatar = document.querySelector('#avatar')
 let listaCards = document.querySelector('.listaCards');
 let barraPesquisa = document.querySelector('#barra');
+var perguntasR = document.querySelector('#respostaRespo')
+var caminhoResp = document.querySelector('.caminhoResp')
+
 
 btCriarTema.addEventListener('click', () => {
   let criarTemas = {
@@ -62,9 +65,31 @@ function carregarCards() {
       response.forEach(p => {
         let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
         publicacoes.classList.remove('modal');
+
         publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+        publicacoes.querySelector("#avatarPubli").src =  '../../../assets/' +  usuario.img
+        publicacoes.querySelector("#userPubli").innerHTML = usuario.user_name
+
+        document.querySelector('nav').appendChild(publicacoes)
+
+        perguntasR.addEventListener('click', () => {
+          caminhoResp.classList.remove('modal')
+          fetch('http://localhost:3000/listarResposta')
+          .then(response => response.json())
+          .then(response => {
+            response.forEach(r => {
+              var Vrespostas = document.querySelector('.RespostasRes').cloneNode(true)
+              Vrespostas.classList.remove('modal')
+              Vrespostas.querySelector('#avatarPubli').innerHTML = usuario.img
+              Vrespostas.querySelector('#usuarioPergunta').innerHTML = usuario.publicacoes
+              Vrespostas.querySelector('#resp').innerHTML = r.resposta
+
+              document.querySelector('main').appendChild(Vrespostas)
 
 
+            })
+          })
+        })
             })
           })
       })

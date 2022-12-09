@@ -42,7 +42,7 @@ const listarUsuarios = (req, res) => {
         if (err == null)
             res.json(result).end();
         else
-            res.status(500).end()
+            res.status(500).json(err).end()
     });
 }
 
