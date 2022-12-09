@@ -2,10 +2,12 @@ let inputTema = document.querySelector('#inputTema');
 let inputImg = document.querySelector('#inputImg');
 let btCriarTema = document.querySelector('#criar');
 
+let listaCards = document.querySelector('.listaCards');
+
 btCriarTema.addEventListener('click', () => {
       let criarTemas = {
-        "tema": inputTema.value,
-        "imagem": inputImg.value
+        "nome": inputTema.value,
+        "foto": inputImg.value
     }
       
       fetch('http://localhost:3000/criarTemas', {
@@ -14,7 +16,7 @@ btCriarTema.addEventListener('click', () => {
             'Content-Type': 'application/json'
         },
         'body': JSON.stringify(criarTemas)
-      });
+      })
       
         .then(response => response.status)
         .then(response => {
@@ -28,18 +30,24 @@ btCriarTema.addEventListener('click', () => {
         .catch(err => console.error(err));
 })
     
-    
 
 
+function carregarCards() {
+    const options = {method: 'GET'};
 
-const abrirModalMenu = () => {
-    let modal = document.querySelector('.menuLateral');
-    modal.classList.remove('modal');
-}
+    fetch('http://localhost:3000/listarTemas', options)
+      .then(response => response.json())
+      .then(response => {
+        response.forEach(tema => {
+            var abrirDiv = document.querySelector('.card1').cloneNode(true)
+            abrirDiv.classList.remove('clone1')
+            // abrirDiv.querySelector('#pic1').src = tema.foto
+            abrirDiv.querySelector('#tema').innerHTML = tema.nome
 
-const fecharModalMenu = () => {
-    let modal = document.querySelector('.menuLateral');
-    modal.classList.add('modal');
+            listaCards.appendChild(abrirDiv)
+        })
+      })
+      .catch(err => console.error(err));
 }
 
 const modalCriarTema = () => {
@@ -51,4 +59,3 @@ const fecharModalTema = () => {
     let modal = document.querySelector('.modalTema');
     modal.classList.add('modal1');
 }
-

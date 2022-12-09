@@ -6,9 +6,9 @@ const createTemas  = (model) => {
     return `INSERT INTO temas VALUES (default, '${model.nome}', '${model.foto}');`
 }
 
-// const deleteTemas = (model) => {
-//     return `DELETE FROM temas WHERE id = ${model.id}`
-// }
+const deleteTemas = (model) => {
+    return `DELETE FROM temas WHERE id = ${model.id}`
+}
 
 const editarTemas = (model) => {
     return `UPDATE temas SET nome = '${model.nome}', foto = '${model.foto}' WHERE id = ${model.id};`
@@ -17,6 +17,6 @@ const editarTemas = (model) => {
 module.exports = {
     listarTemas,
     createTemas,
-    // deleteTemas,
+    deleteTemas,
     editarTemas
 }

@@ -20,15 +20,15 @@ const criarTemas = (req, res) => {
     });
 }
 
-// const excluirTemas = (req, res) =>  {
-//     con.query(ligacao.deleteTemas(req.body), (err, result) =>  {
-//         if(err == null) {
-//             res.status(200).json(req.body).end();
-//         }else {
-//             res.status(400).json(err).end();
-//         }
-//     });
-// };
+const excluirTemas = (req, res) =>  {
+    con.query(ligacao.deleteTemas(req.body), (err, result) =>  {
+        if(err == null) {
+            res.status(200).json(req.body).end();
+        }else {
+            res.status(400).json(err).end();
+        }
+    });
+};
 
 const editarTemas = (req, res) =>  {
     con.query(ligacao.editarTemas(req.body), (err, result) =>  {
@@ -48,6 +48,6 @@ const editarTemas = (req, res) =>  {
 module.exports = {
     listarTemas,
     criarTemas,
-    // excluirTemas,
+    excluirTemas,
     editarTemas 
 }

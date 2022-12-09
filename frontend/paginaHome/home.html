@@ -13,7 +13,7 @@
 
     <title>Home</title>
 </head>
-<body>
+<body onload="carregarCards()">
     <header>
         <img id="menu" onclick="abrirModalMenu()" src="../../../assets/menu.png" alt='menu'/>
         <img id="logo" src="../../../assets/logo.png" alt="logo.png">
@@ -27,9 +27,9 @@
         <h2>Escolha um tema ou crie um novo</h2>
        </div>
        <div class="listaCards">
-        <div class="card1">
+        <div class="card1 clone1">
             <Img id="pic1" src="../../../assets/avatar.png" alt="Ícone do Tema"/>
-            <a>Teste</a>
+            <a id="tema">Teste</a>
         </div>
        </div>
     </main>
@@ -51,4 +51,5 @@
     </div>
 </body>
 <script src="./script/homeScript.js"></script>
+<script src="../global/globalScript.js"></script>
 </html>
