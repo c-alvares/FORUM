@@ -2,6 +2,10 @@ const readPublicacoes = () => {
     return 'SELECT * FROM Publicacoes;'
 }
 
+const buscarPublicacao = (model) => {
+    return `SELECT * FROM Publicacoes WHERE publicacoes LIKE '%${model.publicacoes}%'`;
+}
+
 const createPublicacoes  = (model) => {
     return `INSERT INTO Publicacoes VALUES (default, ${model.id_user}, ${model.id_tema}, '${model.publicacoes}');`
 }
@@ -15,6 +19,7 @@ const editarPublicacoes = (model) => {
 
 module.exports = {
     readPublicacoes,
+    buscarPublicacao,
     deletePublicacoes,
     createPublicacoes,
     editarPublicacoes

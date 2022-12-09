@@ -10,6 +10,18 @@ const listarPublicacoes = (req, res) => {
     });
 }
 
+const pesquisarPublicacoes = (req, res) => {
+    con.query(Interligacao.buscarPublicacao(req.body), (err, result) => {
+        if (err == null)
+            if (result.length > 0)
+                res.json(result).end();
+            else
+                res.status(404).end();
+        else
+            res.status(500).end();
+    });
+}
+
 const createPublicacoes = (req, res) => {
     con.query(Interligacao.createPublicacoes(req.body), (err, result) => {
         if(err == null) {
@@ -47,6 +59,7 @@ const editarPublicacao = (req, res) =>  {
 
 module.exports = {
     listarPublicacoes,
+    pesquisarPublicacoes,
     excluirPublicacao,
     createPublicacoes,
     editarPublicacao
