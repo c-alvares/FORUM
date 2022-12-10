@@ -189,7 +189,51 @@ nav > .publicacoes{
     text-decoration: none;
     color: #000000
 }
+ .RespostasRes{
+    width:30%;
+    height: 90%;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.505);
+    border-radius: 20px;
+    margin: 8vh 35vw;
+ }
+ .quadradro1{
+    width: 100%;
+    height: 26%;
+    background-color: rgb(252, 236, 236);
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px black;
+}
+ #resp {
+    margin: 10px;
+}
+#resPergunta{
+    margin: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+.usuarioRespode{
+    width: 30%;
+    height: 20%;
+    background-color: #fff;
+    box-shadow: 1px 2px 1px 1px rgb(118, 118, 118);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+    margin-left:10vw;
+}
+#visualizarRespostasRespostas{
+    font-size: 8pt;
+    margin-top: 20px;
+    text-align: right;
+}
 
+#visualizarRespostasRespostas:hover{
+    cursor: pointer;
+}
 
 .redeSocial {
     width: 1.6666666666666667vw;
@@ -229,14 +273,14 @@ nav > .publicacoes{
     margin-top: 3vh;
 }
 
-#respostaRespo{
+#RR{
     font-size: 8pt;
      color: red;
      text-align: right;
      margin: 10px;
 }
 
-#respostaRespo:hover{
+#RR:hover{
     cursor:pointer;
 }
 
@@ -282,4 +326,11 @@ nav > .publicacoes{
 .modal2 {
     display: none;
     visibility: hidden;
+}
+.caminhoResp{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #9DCAFF;
 }
