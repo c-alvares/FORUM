@@ -49,7 +49,8 @@
 
 
         <div class="caminhoResp modal">
-            <div class='RespostasRes modal'>
+                <div class='RespostasRes modal'>
+                    <img onclick='fecharResp()' class="fecharR"  src="../../../assets/fechar.png" alt="fechar.png">
                 <p id='resPergunta'></p>
                 <div class="quadradro1">
                     <div class="usuarioRespode">
@@ -60,12 +61,14 @@
                     <p id='resp'></p>
                     <p id="visualizarRespostasRespostas" onclick="visualizarRespResp()">Visualizar Respostas...</p>
                 </div>
-                <div id="respostasRespostass modal ">
-                    <img id="avatarRes" alt="avatar"/>
-                    <p id="userRes"></p>
-                    <p id="ResRes"></p>
-                </div>
+                <input type='text' placeholder='Escreva um comentario...'/>
             </div>
+        </div>
+
+        <div id="respostasRespostass modal">
+            <img id="avatarRes" alt="avatar"/>
+            <p id="userRes"></p>
+            <p id="ResRes"></p>
         </div>
 
 
@@ -80,7 +83,7 @@
         <img id="instagram" class="redeSocial" src="../../../assets/instagram.png" alt="instagram.png">
         <img id="pinterest" class="redeSocial" src="../../../assets/pinterest.png" alt="pinteres.png">
     </div> 
-    <div class="modalPesquisa">
+    <div class="modalPesquisa modal">
         <table class="tabelaPesquisa">
             <tr class="linhaPesquisa modal2">
                 <td id="celulaPesquisa">teste barra de pesquisa</td>

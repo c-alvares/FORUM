@@ -91,7 +91,7 @@ nav > .publicacoes{
     display: flex;
     flex-direction: column;
     position: relative;
-    top: -40vh;
+    top: -61vh;
     margin-left: 40vw;
     border: none;
     width: 20vw;
@@ -104,8 +104,9 @@ nav > .publicacoes{
     display: flex;
     border: none;
     box-shadow: 1px 1px 1px black;
-    border-radius: 20px;
-    
+    border-radius: 21px;
+    margin: -14px 10px 12px 10px;
+   
 }
 
 #usuario > p{
@@ -199,7 +200,7 @@ nav > .publicacoes{
  }
  .quadradro1{
     width: 100%;
-    height: 26%;
+    height: 22%;
     background-color: rgb(252, 236, 236);
     border-radius: 20px;
     box-shadow: 1px 1px 1px black;
@@ -229,10 +230,13 @@ nav > .publicacoes{
     font-size: 8pt;
     margin-top: 20px;
     text-align: right;
+    color: rgb(242, 108, 130);
 }
 
 #visualizarRespostasRespostas:hover{
     cursor: pointer;
+    color: rgb(246, 0, 41);
+   transition:ease-out 0.4s;
 }
 
 .redeSocial {
@@ -275,13 +279,14 @@ nav > .publicacoes{
 
 #RR{
     font-size: 8pt;
-     color: red;
-     text-align: right;
-     margin: 10px;
+    color: #f98989;
+    text-align: right;
+    margin: 10px;
 }
-
-#RR:hover{
-    cursor:pointer;
+#RR:hover {
+    transition: easy-in 0.4s;
+    color: rgb(253, 92, 119);
+    cursor: pointer;
 }
 
 #criar {
@@ -332,5 +337,11 @@ nav > .publicacoes{
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #9DCAFF;
+    background-color: #f2f8ffc3;
+}
+
+.fecharR {
+   margin-left: 27vw;
+   margin-top: 10px;
+   height: 3vh;
 }

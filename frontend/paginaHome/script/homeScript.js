@@ -156,12 +156,12 @@ function visualizarRespResp(){
                           .then(response => response.json())
                           .then(response => {
                             response.forEach(rr => {
-                              var RespostasRe = document.querySelector('#respostasRespostass').cloneNode(true)
-                              RespostasRe.classList.remove('modal')
+                              var RespostasRed = document.querySelector('#respostasRespostass').cloneNode(true)
+                              RespostasRed.classList.remove('modal')
 
-                              RespostasRe.querySelector('#avatarRes').src = '../../../assets/' + us.img
-                              RespostasRe.querySelector('#userRes').innerHTML = us.user_name
-                              RespostasRe.querySelector('#ResRes').innerHTML = rr.resposta_res
+                              RespostasRed.querySelector('#avatarRes').src = '../../../assets/' + us.img
+                              RespostasRed.querySelector('#userRes').innerHTML = us.user_name
+                              RespostasRed.querySelector('#ResRes').innerHTML = rr.resposta_res
 
                               document.querySelector('.caminhoResp').appendChild(RespostasRe)
                   })
@@ -179,4 +179,10 @@ const modalCriarTema = () => {
 const fecharModalTema = () => {
   let modal = document.querySelector('.modalTema');
   modal.classList.add('modal1');
+}
+
+
+function fecharResp(){
+  let c = document.querySelector('.caminhoResp')
+ c.classList.add('modal')
 }
