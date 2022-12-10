@@ -4,8 +4,8 @@ let btCriarTema = document.querySelector('#criar');
 let avatar = document.querySelector('#avatar')
 let listaCards = document.querySelector('.listaCards');
 let barraPesquisa = document.querySelector('#barra');
-var perguntasR = document.querySelector('#respostaRespo')
 var caminhoResp = document.querySelector('.caminhoResp')
+
 
 
 btCriarTema.addEventListener('click', () => {
@@ -58,43 +58,90 @@ function carregarCards() {
     .then(response => {
       response.forEach(usuario => {
         avatar.src = '../../../assets/' + usuario.img
+      })
+      fetch('http://localhost:3000/listarPublicacoes')
+        .then(response => response.json())
+        .then(response => {
+          response.forEach(p => {
+            let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+            publicacoes.classList.remove('modal');
+            fetch('http://localhost:3000/forum/listar')
+              .then(response => response.json())
+              .then(response => {
+                response.forEach(user => {
+                  if (p.id_user == user.id_user) {
+                    publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+                    publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
+                    publicacoes.querySelector("#userPubli").innerHTML = user.user_name
 
-    fetch('http://localhost:3000/listarPublicacoes')
+                    document.querySelector('nav').appendChild(publicacoes)
+                  }
+                })
+              })
+          })
+        })
+    })
+}
+
+function VisualizarRespostas() {
+  var RewsRespos = document.querySelector('#visualizarRespostasRespostas')
+  
+  fetch('http://localhost:3000/listarPublicacoes')
     .then(response => response.json())
     .then(response => {
       response.forEach(p => {
-        let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-        publicacoes.classList.remove('modal');
-
-        publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
-        publicacoes.querySelector("#avatarPubli").src =  '../../../assets/' +  usuario.img
-        publicacoes.querySelector("#userPubli").innerHTML = usuario.user_name
-
-        document.querySelector('nav').appendChild(publicacoes)
-
-        perguntasR.addEventListener('click', () => {
-          caminhoResp.classList.remove('modal')
-          fetch('http://localhost:3000/listarResposta')
+        fetch('http://localhost:3000/listarResposta')
           .then(response => response.json())
           .then(response => {
-            response.forEach(r => {
-              var Vrespostas = document.querySelector('.RespostasRes').cloneNode(true)
-              Vrespostas.classList.remove('modal')
-              Vrespostas.querySelector('#avatarPubli').innerHTML = usuario.img
-              Vrespostas.querySelector('#usuarioPergunta').innerHTML = usuario.publicacoes
-              Vrespostas.querySelector('#resp').innerHTML = r.resposta
+            response.forEach(resp => {
+              fetch('http://localhost:3000/forum/listar')
+                .then(response => response.json())
+                .then(response => {
+                  response.forEach(us => {
+                    if (p.id_publi == resp.id_publi && p.id_user == us.id_user) {
+                      var caminhoResp = document.querySelector('.caminhoResp')
+                      caminhoResp.classList.remove('modal')
+                      var resposta = document.querySelector('.RespostasRes').cloneNode(true)
+                      resposta.classList.remove('modal')
 
-              document.querySelector('main').appendChild(Vrespostas)
+                      resposta.querySelector('#avatarPubli').src = '../../../assets/' + us.img
+                      resposta.querySelector('#usuarioPergunta').innerHTML = us.user_name
+                      resposta.querySelector('#resp').innerHTML = resp.resposta
+                      resposta.querySelector('#resPergunta').innerHTML = p.publicacoes
 
-
-            })
-          })
-        })
+                      document.querySelector('.caminhoResp').appendChild(resposta)
+                      }
+                  })
+                })
             })
           })
       })
     })
 }
+
+function visualizarRespResp(){
+  fetch('http://localhost:3000/forum/listar')
+                .then(response => response.json())
+                .then(response => {
+                  response.forEach(us => {
+                    fetch('http://localhost:3000/listarRespostaRes')
+                          .then(response => response.json())
+                          .then(response => {
+                            response.forEach(rr => {
+                              var RespostasRe = document.querySelector('#respostasRespostass').cloneNode(true)
+                              RespostasRe.classList.remove('modal')
+
+                              RespostasRe.querySelector('#avatarRes').src = '../../../assets/' + us.img
+                              RespostasRe.querySelector('#userRes').innerHTML = us.user_name
+                              RespostasRe.querySelector('#ResRes').innerHTML = rr.resposta_res
+
+                              document.querySelector('.caminhoResp').appendChild(RespostasRe)
+                  })
+                })
+              })
+                  })
+}
+
 
 const modalCriarTema = () => {
   let modal = document.querySelector('.modalTema');
