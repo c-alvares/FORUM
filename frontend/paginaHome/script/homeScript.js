@@ -6,6 +6,35 @@ let listaCards = document.querySelector('.listaCards');
 let barraPesquisa = document.querySelector('#barra');
 var perguntasR = document.querySelector('#respostaRespo')
 var caminhoResp = document.querySelector('.caminhoResp')
+let barra = document.querySelector('#barra');
+let tabelaPesquisa = document.querySelector('.tabelaPesquisa');
+
+
+// barra.addEventListener('input', () => {
+//   let iniciarBusca = {
+//     "nome": barra.value
+//   }
+  const options = {
+    method: 'GET'
+    // 'headers': {'Content-Type': 'application/json'},
+    // 'body': JSON.stringify(iniciarBusca)
+  };
+
+  fetch('http://localhost:3000/listarTemas', options)
+    .then(response => response.json())
+    .then(response => {
+      response.forEach(temaPesquisado => {
+        let abrirDiv = document.querySelector('.linhaPesquisa').cloneNode(true)
+        abrirDiv.classList.remove('modal2')
+        abrirDiv.querySelector('#celulaPesquisa').innerHTML = temaPesquisado.nome
+
+        tabelaPesquisa.appendChild(abrirDiv)
+      })
+    })
+    .catch(err => console.error(err));
+    
+    
+// })
 
 
 btCriarTema.addEventListener('click', () => {
@@ -33,7 +62,6 @@ btCriarTema.addEventListener('click', () => {
     })
     .catch(err => console.error(err));
 })
-
 
 
 function carregarCards() {
