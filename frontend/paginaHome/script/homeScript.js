@@ -20,6 +20,7 @@ let tabelaPesquisa = document.querySelector('.tabelaPesquisa');
   };
 
   fetch('http://localhost:3000/listarTemas', options)
+
     .then(response => response.json())
     .then(response => {
       response.forEach(temaPesquisado => {
@@ -32,8 +33,56 @@ let tabelaPesquisa = document.querySelector('.tabelaPesquisa');
     })
     .catch(err => console.error(err));
     
-    
-// })
+  
+
+
+
+  
+  function publicarRespResposta(){
+  var responderResp = document.querySelector('#inppublicar')
+ 
+  fetch('http://localhost:3000/listarResposta')
+    .then(response => response.json())
+    .then(respons => {
+      respons.forEach(respostas => {
+
+        fetch('http://localhost:3000/listarRespostaRes')
+        .then(response => response.json())
+        .then(response => {
+          response.forEach(respresp => {
+          if(respostas.id_resposta == respresp.id_resposta){
+            console.log(responderResp.value)
+  var responder = {
+    "id_resposta": respostas.id_resposta,
+    "resposta_res": responderResp.value
+  }
+  console.log(responder)
+          }
+
+  // fetch('http://localhost:3000/criarTemas', {
+  //   'method': 'POST',
+  //   'headers': {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   'body': JSON.stringify(criarTemas)
+  // })
+
+  //   .then(response => response.status)
+  //   .then(response => {
+  //     if (response == 201) {
+  //       alert("Tema cadastrado com sucesso")
+  //       window.location.reload()
+  //     } else {
+  //       alert('Falha ao cadastrar novo tema')
+  //     }
+  //   })
+  //   .catch(err => console.error(err));
+})
+      })
+    })
+})
+}
+
 
 
 
@@ -156,7 +205,14 @@ function visualizarRespResp(){
                           .then(response => response.json())
                           .then(response => {
                             response.forEach(rr => {
-                              var RespostasRed = document.querySelector('#respostasRespostass').cloneNode(true)
+                              fetch('http://localhost:3000/listarResposta')
+                              .then(response => response.json())
+                              .then(response => {
+                                response.forEach(resp => {
+                                  if(rr.id_resposta == resp.id_resposta){
+                                    console.log(resp.id_resposta)
+                              var RespostasRed = document.querySelector('#respostasRespostass')
+                              RespostasRed.cloneNode(true)
                               RespostasRed.classList.remove('modal')
 
                               RespostasRed.querySelector('#avatarRes').src = '../../../assets/' + us.img
@@ -164,8 +220,11 @@ function visualizarRespResp(){
                               RespostasRed.querySelector('#ResRes').innerHTML = rr.resposta_res
 
                               document.querySelector('.caminhoResp').appendChild(RespostasRe)
+                                  }
                   })
                 })
+                })
+              })
               })
                   })
 }

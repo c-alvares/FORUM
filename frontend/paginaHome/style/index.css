@@ -345,3 +345,12 @@ nav > .publicacoes{
    margin-top: 10px;
    height: 3vh;
 }
+
+.publicandorespostas{
+    display: flex;
+    justify-content:center;
+    margin: 48vh 10vw;
+  border: 1px solid;
+  width: 20vw;
+  height: 5vh;
+}
