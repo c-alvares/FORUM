@@ -47,32 +47,38 @@
             </div>
         </nav>
 
-
         <div class="caminhoResp modal">
+            <div id="arrumandoQuadrado">
+                <img onclick='fecharResp()' class="fecharR" src="../../../assets/fechar.png" alt="fechar.png">
+                 <p id='resPergunta'></p>
                 <div class='RespostasRes modal'>
-                    <img onclick='fecharResp()' class="fecharR"  src="../../../assets/fechar.png" alt="fechar.png">
-                <p id='resPergunta'></p>
-                <div class="quadradro1">
-                    <div class="usuarioRespode">
-                        <img id="avatarPubli" alt="avatar.png">
-                        <p id='usuarioPergunta'>Usuario</p>
+                    <div class="quadradro1">
+                        <div class="usuarioRespode">
+                            <img id="avatarPubli" alt="avatar.png">
+                            <p id='usuarioPergunta'>Usuario</p>
+                        </div>
+                         <p id='resp'></p>
+                        <p id="visualizarRespostasRespostas" onclick="visualizarRespResp()">Visualizar Respostas...</p>
                     </div>
-
-                    <p id='resp'></p>
-                    <p id="visualizarRespostasRespostas" onclick="visualizarRespResp()">Visualizar Respostas...</p>
-                </div>
+                       
+                    <div class="respostasRespostass modal" >
+                        <img onclick='fecharresposta()' class="fecharRespostas" src="../../../assets/fechar.png" alt="fechar.png">
+                        <div class='alinhando'>
+                        <img id="avatarRes" alt="avatar res"/>
+                        <p id="userRes"></p>
+                    </div> 
+                        <p id="ResRes"></p>
+                    </div>
+                </div> 
                 <div class='publicandorespostas'>
-                <input id='inppublicar' type='text' placeholder='Escreva um comentario...'/>
-                <button id='btnPublicarRepResp' onclick='publicarRespResposta()'>Publicar</button>
+                    <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
+                    <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
                 </div>
             </div>
         </div>
-
-        <div id="respostasRespostass modal">
-            <img id="avatarRes" alt="avatar"/>
-            <p id="userRes"></p>
-            <p id="ResRes"></p>
         </div>
+
+
 
 
     </main>
@@ -85,7 +91,7 @@
         <div class="menuItens"><a href='../paginaLogin/index.html'>Sair</a></div>
         <img id="instagram" class="redeSocial" src="../../../assets/instagram.png" alt="instagram.png">
         <img id="pinterest" class="redeSocial" src="../../../assets/pinterest.png" alt="pinteres.png">
-    </div> 
+    </div>
     <div class="modalPesquisa modal">
         <table class="tabelaPesquisa">
             <tr class="linhaPesquisa modal2">
