@@ -7,50 +7,50 @@
 }
 
 body {
-    width: 1440px;
-    height: 1024px;
+    /* width: 1440px;
+    height: 1024px; */
     background-color: #FDF4DF;
 }
 
 nav {
     position: absolute;
-    width: 560px;
-    height: 560px;
+    width: 40.995607613469986vw;
+    height: 40.995607613469986vw;
     left: 35%;
-    top: 228px;
+    top: 7.130970724191066vh;
 
     background-color: #FFE5F2;
-    box-shadow: 0px 4px 10px rgba(128, 128, 128, 0.53);
-    border-radius: 20px;
+    box-shadow: 0rem 0.25rem 0.625rem rgba(128, 128, 128, 0.53);
+    border-radius: 2vw;
 }
 
 p {
     position: absolute;
-    width: 181px;
-    height: 42px;
-    left: 205px;
-    top: 51px;
+    width: 13.250366032210835vw;
+    height: 6.471494607087828vh;
+    left: 15.00732064421669vw;
+    top: 7.858243451463791vh;
 
     font-family: 'Berkshire Swash';
     font-style: normal;
     font-weight: 400;
-    font-size: 34px;
-    line-height: 42px;
+    font-size: 2.125rem;
+    line-height: 2.625rem;
 
     color: #000000;
 
-    text-shadow: 0px 4px 4px rgba(255, 73, 73, 0.32);
+    text-shadow: 0rem 0.25rem 0.25rem rgba(255, 73, 73, 0.32);
 }
 
 input {
-    width: 386px;
-    height: 58px;
-    left: 95px;
-    top: 15vh;
+    width: 28.257686676427525vw;
+    height: 8.936825885978429vh;
+    left: 6.954612005856515vw;
+    top: 2.3112480739599386vh;
 
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(252, 156, 156, 0.25);
-    border-radius: 25px;
+    box-shadow: 0rem 0.25rem 0.25rem rgba(252, 156, 156, 0.25);
+    border-radius: 2vw;
 }
 
 .inputs{
@@ -60,31 +60,50 @@ input {
     margin: 18vh 5.5vw;
 }
 
-a {
+#esqueceuSenha {
     position: absolute;
-    width: 134px;
-    height: 19px;
+    width: 9.809663250366032vw;
+    height: 2.9275808936825887vh;
     left: 12vw;
     top: 57vh;
 
     font-family: 'Berkshire Swash';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
-    line-height: 19px;
+    font-size: 0.938rem;
+    line-height: 1.188rem;
     text-decoration: none;
 
     color: #000000;
     cursor: pointer;
 
-    text-shadow: 0px 4px 4px rgba(255, 109, 109, 0.25);
+    text-shadow: 0rem 0.25rem 0.25rem rgba(255, 109, 109, 0.25);
 }
 
+#cadastrese {
+    position: absolute;
+    width: 9.809663250366032vw;
+    height: 2.9275808936825887vh;
+    left: 12vw;
+    top: 63vh;
+
+    font-family: 'Berkshire Swash';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.938rem;
+    line-height: 1.188rem;
+    text-decoration: none;
+
+    color: #000000;
+    cursor: pointer;
+
+    text-shadow: 0rem 0.25rem 0.25rem rgba(255, 109, 109, 0.25);
+}
 
 button {
    position: absolute;
     width: 35%;
-    height: 55px;
+    height: 8.474576271186441vh;
     left: 10vw;
     top: 46vh;;
 
@@ -122,36 +141,36 @@ button:hover:after{
 }
 
 #vazioEmail{
-    margin: 19vh -14vw 1px -1vw;
-    font-size: 12px;
+    margin: 19vh -14vw 1vw -1vw;
+    font-size: 0.75rem;
     color:red;
 }
 
 #vazioSenha{
     margin: 30vh -15vw 0 -1vw;
-    font-size: 12px;
+    font-size: 0.75rem;
     color:red;
 }
 
 #userErrado{
     margin: 33vw -13vw 0 0;
-    font-size: 15px;
+    font-size: 0.938;
 }
 
 #glace{
     position: absolute;
     display: block;
-    width: calc(100% + 1.3px);
+    width: calc(100% + 0.0951683748169839vw);
     height: 85.5vh;
     background-color: #d3fffb;
     border-radius: 40% 40% 40% 40%;
 }
 
-@media(max-width:2000px){
+@media(max-width: 146.41288433382138vw){
     #glace{
         position: absolute;
         display: block;
-        width: calc(100% + 1.3px);
+        width: calc(100% + 0.0951683748169839vw);
         height: 57.5vh;
         background-color: #d3fffb;
         border-radius: 40% 40% 40% 40%;
@@ -170,62 +189,64 @@ button:hover:after{
 }
 
 /* Redefinir a senha */
-#username,
-#nome,
-#senhaR,
-#senhaCon{
+#username, #usernameC,
+#nome, #nomeC,
+#senhaR, #senhaC1,
+#senhaCon, #emailC {
     width: 8vw;
     height: 4vh;
-    margin-top: 6px;
+    margin-top: 0.9244992295839753vh;
     
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(252, 156, 156, 0.25);
-    border-radius: 25px;
+    box-shadow: 0rem 0.25rem 0.25rem rgba(252, 156, 156, 0.25);
+    border-radius: 2vw;
 }
 
 li{
     list-style: none;
     margin-top: -5vh;
 }
- .abrir{
+ .abrir, .modalCadastro {
     position: absolute;
     height: 100%;
     width: 100%;
     background-color:#fdf4df ;
 }
-#atualizar{
+#atualizar, #cadastrar {
     width: 8vw;
-    height: 5.5vh;
+    height: 4vh;
     margin: 49vh 42vw;
     position: absolute;
     cursor: pointer;
+    left: 5vw;
+    top: 17.2vh;
 }
 
-.atualizar{
+.atualizar, .cadastrar {
     background-color: #ffe5f2;
     height: 40vh;
     width: 30vw;
-    gap: 10px;
+    gap: 1.5408320493066257vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 32vh 36vw;
     border: 5px solid #ffdced;
-    border-radius: 50px;
+    border-radius: 2.5vw;
 
     position: absolute;
 } 
 
-.modal{
+.modal, .modalC {
     display: none;
     visibility: hidden;
 }
 
-#fechar{
+#fechar, #fecharC{
     height: 1.5vh;
     position: absolute;
     top: 3.5vh;
-    left: 27vw;
+    left: 25vw;
     cursor: pointer;
 }

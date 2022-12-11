@@ -14,7 +14,6 @@
 <body>
     <body>
         <nav>
-            
             <div id='glace'>
                 <p>Olá, docinho</p>
                 <div class='inputs'>
@@ -26,7 +25,8 @@
                 <a id='esqueceuSenha' onclick="AbrirModalRedefinirSenha()">Esqueceu a senha?</a>
                 <p id="userErrado"></p>
                 <button id="logar">Logar</button>
-            </div>
+                <a id="cadastrese" onclick="AbrirModalCadastro()">Cadastre-se agora!</a>
+            </div>  
         </nav>
 
         <div class="abrir modal">
@@ -39,6 +39,18 @@
                 <input type="text" placeholder="Confirmar senha" id='senhaCon'>
             </div>
             <input type="button" value="Atualizar" id="atualizar"/>
+        </div>
+
+        <div class="modalCadastro modalC">
+            <div class="cadastrar">
+                <img src="../../../assets/fechar.png" id='fecharC' alt="fechar" />
+                <li>Por favor, insira seus dados:</li>
+                <input type="text" placeholder="username" id="usernameC">
+                <input type="text" placeholder="nome" id="nomeC">
+                <input type="text" placeholder="email" id="emailC">
+                <input type="text" placeholder="senha" id='senhaC1'>
+            </div>
+            <input type="button" value="Cadastrar" id="cadastrar"/>
         </div>
     </body>
     <script src='./script/index.js'></script>

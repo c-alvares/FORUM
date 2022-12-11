@@ -1,12 +1,14 @@
-let InputEmail = document.querySelector('#email')
-let InputSenha = document.querySelector('#senha')
-let nav = document.querySelector('nav')
-let btnLogar = document.querySelector('#logar')
-let InputsVazioEmail = document.querySelector('#vazioEmail')
-let InputsVaziosSenha = document.querySelector('#vazioSenha')
-let loginErrado = document.querySelector('#userErrado')
-let abrirModal = document.querySelector('.abrir')
-let fecharModal = document.querySelector('#fechar')
+let InputEmail = document.querySelector('#email');
+let InputSenha = document.querySelector('#senha');
+let nav = document.querySelector('nav');
+let btnLogar = document.querySelector('#logar');
+let InputsVazioEmail = document.querySelector('#vazioEmail');
+let InputsVaziosSenha = document.querySelector('#vazioSenha');
+let loginErrado = document.querySelector('#userErrado');
+let abrirModal = document.querySelector('.abrir');
+let fecharModal = document.querySelector('#fechar');
+let fecharModalC = document.querySelector('#fecharC');
+let modalCadastro = document.querySelector('.modalCadastro');
 
 let certo = false;
 
@@ -91,5 +93,50 @@ fecharModal.addEventListener('click', () => {
     logar.style = ''
 })
 
+function AbrirModalCadastro() {
+    modalCadastro.classList.remove('modalC')
+    logar.style = 'display: none; visibility: hidden'
+    let usernameC = document.querySelector('#usernameC')
+    let nameC = document.querySelector('#nomeC')
+    let emailC = document.querySelector('#emailC')
+    let senhaC = document.querySelector('#senhaC1')
+    let cadastrar = document.querySelector('#cadastrar')
 
+    cadastrar.addEventListener('click', () => {
+        if (usernameC.value == '' && nameC.value == '' && emailC.value == '' && senhaC.value  == '') {
+            alert('preencha os campos acima!')
+        } else {
+            let cadastrarUser = {
+                'user_name': usernameC.value,
+                'nome': nameC.value,
+                'email': emailC.value,
+                'senha': senhaC.value
+            }
+                fetch('http://localhost:3000/forum/cadastrar', {
+                    "method": 'POST',
+                    "headers": {
+                        "Content-Type": "application/json"
+                    },
+                    "body": JSON.stringify(cadastrarUser)
+                })
+                    .then(response => { return response.status })
+                    .then(res => {
+                        if (res == 200) {
+                            alert('Usuario cadastrado com sucesso!')
+                            window.location.reload()
 
+                        } else {
+                            alert('Falha ao cadastrar usuario!')
+                        }
+                    })
+                    .catch(err => console.error(err));
+            
+        }
+
+    })
+}
+
+fecharModalC.addEventListener('click', () => {
+    modalCadastro.classList.add('modalC')
+    logar.style = ''
+})
