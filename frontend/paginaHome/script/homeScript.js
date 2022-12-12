@@ -207,7 +207,7 @@ btCriarTema.addEventListener('click', () => {
     .catch(err => console.error(err));
 })
 
-function VisualizarRespostas() {
+
 
 function carregarCards() {
   const options = { method: 'GET' };
@@ -258,7 +258,7 @@ function carregarCards() {
         avatar.src = '../../../assets/' + us.img
       })
     })
-}
+  }
 
 function VisualizarRespostas() {
 
@@ -391,4 +391,3 @@ function Favoritando(){
   //   .catch(err => console.error(err));
 }
 
-}
