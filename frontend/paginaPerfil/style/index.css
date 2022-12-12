@@ -5,7 +5,7 @@
 }
 
 header{
-    background-color: antiquewhite;
+    background-color: #ffe5f2;
     height: 4vh;
     display: flex;
     align-items: center;
@@ -13,16 +13,18 @@ header{
 }
 
 body{
-    background-color: rgb(237, 207, 168);
+    background-color: #ffdced;
     width: 100%;
 }
 
 nav {
     text-align: center;
     margin: 5%;
-    background-color: rgb(250, 234, 181);
+    background-color: #ffe5f2;
     height: 100%;
     width: 20vw;
+    box-shadow: 1px 1px #ffdced;
+    border-radius: 20px;
 
     position: absolute;
     top: -2.9vw;
@@ -55,7 +57,7 @@ main {
     width: 10vw;
     height: 2vw;
     border-radius: 15%;
-    background-color: rgb(251, 232, 122);
+    background-color:#fdf4df;
     color: black;
     margin-left: 5vw;
     margin-top: 2vh;
@@ -63,7 +65,7 @@ main {
 
 #editar:hover{
     transition: ease-in, 0.2s;
-    background-color: rgba(246, 234, 70, 0.906);
+    background-color: #f8efd8;
     cursor: pointer;
 }
 
@@ -75,8 +77,8 @@ main {
 #redes > img{
     width: 2vw;
     height: 2vw;
-    margin-top: 18vh;
-    margin-left: 10px;
+    margin-top: 6vh;
+    margin-left: 8px;
 
 }
 
@@ -188,4 +190,10 @@ li{
 .imgU{
     display: flex;
     gap: 40%;
+}
+
+#casinha{
+    height: 30px;
+    width: 30px;
+    padding-top: 2px;;
 }
