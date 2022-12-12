@@ -398,7 +398,15 @@ nav>.publicacoes {
         margin: 70vh 7vw;
     }
 
+}
 
+#favoritar{
+    text-align: center;
+}
 
-
+#naoFavorito{
+    height: 20px;
+    width: 20px;
+    margin-left: 16vw;
+    margin-top: -2vh;
 }

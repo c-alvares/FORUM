@@ -11,6 +11,7 @@ var userPadrao = ''
 var id_publicacao = 0
 var avatarUsuario = ''
 var id_respostas = 0
+var id = localStorage.getItem('id_user')
 
 barra.addEventListener('submit', () => {
 
@@ -171,12 +172,12 @@ function carregarCards() {
           })
       })
     })
-    fetch('http://localhost:3000/forum/listar')
+  fetch('http://localhost:3000/forum/listar')
     .then(response => response.json())
     .then(response => {
       response.forEach(us => {
-        
-        avatar.src = '../../../assets/' +  us.img
+
+        avatar.src = '../../../assets/' + us.img
       })
     })
 }
@@ -199,7 +200,7 @@ function VisualizarRespostas() {
                   .then(response => {
                     response.forEach(us => {
                       avatar.src = '../../../assets/' + us.img
-                      
+
                       if (p.id_user == us.id_user) {
                         var caminhoResp = document.querySelector('.caminhoResp')
                         caminhoResp.classList.remove('modal')
@@ -287,3 +288,31 @@ function fecharresposta() {
   console.log('funcionando eu to')
   fr.classList.add('modal')
 }
+
+function Favoritando(){
+  var responder = {
+    "id_user": id,
+    "id_publi": id_publicacao,
+  }
+ console.log(responder)
+
+  // fetch('http://localhost:3000/criarResposta', {
+  //   'method': 'POST',
+  //   'headers': {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   'body': JSON.stringify(responder)
+  // })
+
+  //   .then(response => response.status)
+  //   .then(response => {
+  //     if (response == 201) {
+  //       alert("Resposta publicada com sucesso")
+
+  //     } else {
+  //       alert('Falha ao publicar resposta')
+  //     }
+  //   })
+  //   .catch(err => console.error(err));
+}
+
