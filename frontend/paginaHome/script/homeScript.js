@@ -19,7 +19,7 @@ var id = localStorage.getItem('id_user')
 
 
 function pesquisarTemas() {
-  const options = {method: 'GET'};
+  const options = { method: 'GET' };
 
   let uri = 'http://localhost:3000/pesquisarTemas/' + barra.value;
   console.log(uri)
@@ -36,62 +36,62 @@ function pesquisarTemas() {
     })
     .catch(err => console.error(err));
 
-    document.addEventListener('click', event => {
-      const isClickInside = celulaPesquisa.contains(event.target)
-    
-      if(!isClickInside) {
-        abrirDiv.classList.add('modal2')
-      }
+  document.addEventListener('click', event => {
+    const isClickInside = celulaPesquisa.contains(event.target)
 
-      // modalPesquisa.addEventListener('click', () => {
-      //   const options = { method: 'GET' };
-        
-      //   fetch(uri, options)
-      //     .then(response => response.json())
-      //     .then(response => {
-      //       response.forEach(tema => {
-      //         let abrirDiv = document.querySelector('.card1').cloneNode(true)
-      //         abrirDiv.classList.remove('clone1')
-      //         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
-      //         abrirDiv.querySelector('#tema').innerHTML = tema.nome
-      
-      //         listaCards.appendChild(abrirDiv)
-      //       })
-      //     })
-      //     .catch(err => console.error(err));
-      
-      //   fetch('http://localhost:3000/forum/listar')
-      //     .then(response => response.json())
-      //     .then(response => {
-      //       response.forEach(usuario => {
-      //         avatar.src = '../../../assets/' + usuario.img
-      //       })
-      //       fetch('http://localhost:3000/listarPublicacoes')
-      //         .then(response => response.json())
-      //         .then(response => {
-      //           response.forEach(p => {
-      //             fetch('http://localhost:3000/forum/listar')
-      //               .then(response => response.json())
-      //               .then(response => {
-      //                 response.forEach(user => {
-      //                   if (p.id_user == user.id_user) {
-      //                     let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-      //                     publicacoes.classList.remove('modal');
-      //                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
-      //                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
-      //                     console.log()
-      //                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-      
-      //                     document.querySelector('nav').appendChild(publicacoes)
-      //                   }
-      //                 })
-      //               })
-      //           })
-      //         })
-      //     })
-      // })
+    if (!isClickInside) {
+      abrirDiv.classList.add('modal2')
+    }
 
-    })
+    // modalPesquisa.addEventListener('click', () => {
+    //   const options = { method: 'GET' };
+
+    //   fetch(uri, options)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //       response.forEach(tema => {
+    //         let abrirDiv = document.querySelector('.card1').cloneNode(true)
+    //         abrirDiv.classList.remove('clone1')
+    //         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
+    //         abrirDiv.querySelector('#tema').innerHTML = tema.nome
+
+    //         listaCards.appendChild(abrirDiv)
+    //       })
+    //     })
+    //     .catch(err => console.error(err));
+
+    //   fetch('http://localhost:3000/forum/listar')
+    //     .then(response => response.json())
+    //     .then(response => {
+    //       response.forEach(usuario => {
+    //         avatar.src = '../../../assets/' + usuario.img
+    //       })
+    //       fetch('http://localhost:3000/listarPublicacoes')
+    //         .then(response => response.json())
+    //         .then(response => {
+    //           response.forEach(p => {
+    //             fetch('http://localhost:3000/forum/listar')
+    //               .then(response => response.json())
+    //               .then(response => {
+    //                 response.forEach(user => {
+    //                   if (p.id_user == user.id_user) {
+    //                     let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+    //                     publicacoes.classList.remove('modal');
+    //                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+    //                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
+    //                     console.log()
+    //                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
+
+    //                     document.querySelector('nav').appendChild(publicacoes)
+    //                   }
+    //                 })
+    //               })
+    //           })
+    //         })
+    //     })
+    // })
+
+  })
 }
 
 
@@ -258,10 +258,9 @@ function carregarCards() {
         avatar.src = '../../../assets/' + us.img
       })
     })
-  }
+}
 
 function VisualizarRespostas() {
-
   fetch('http://localhost:3000/listarPublicacoes')
     .then(response => response.json())
     .then(response => {
@@ -272,14 +271,14 @@ function VisualizarRespostas() {
           .then(response => response.json())
           .then(response => {
             response.forEach(resp => {
-              if (p.id_publi == resp.id_publi) {
-                fetch('http://localhost:3000/forum/listar')
-                  .then(response => response.json())
-                  .then(response => {
-                    response.forEach(us => {
-                      avatar.src = '../../../assets/' + us.img
-
-                      if (p.id_user == us.id_user) {
+              fetch('http://localhost:3000/forum/listar')
+                .then(response => response.json())
+                .then(response => {
+                  response.forEach(us => {
+                    avatar.src = '../../../assets/' + us.img
+                    if (p.id_user == us.id_user) {
+                      if (p.id_publi == resp.id_publi) {
+                        console.log(resp.id_publi)
                         var caminhoResp = document.querySelector('.caminhoResp')
                         caminhoResp.classList.remove('modal')
                         var resposta = document.querySelector('.RespostasRes').cloneNode(true)
@@ -290,10 +289,12 @@ function VisualizarRespostas() {
                         resposta.querySelector('#resp').innerHTML = resp.resposta
 
                         document.querySelector('#arrumandoQuadrado').appendChild(resposta)
+                      }else{
+                        console.log('err')
                       }
-                    })
+                    }
                   })
-              }
+                })
             })
           })
       })
@@ -301,9 +302,6 @@ function VisualizarRespostas() {
 }
 
 function visualizarRespResp() {
-  var RespostasRed = document.querySelector('.respostasRespostass').cloneNode(true)
-  RespostasRed.classList.remove('modal')
-
   fetch('http://localhost:3000/forum/listar')
     .then(response => response.json())
     .then(respons => {
@@ -322,6 +320,8 @@ function visualizarRespResp() {
                         .then(respon => {
                           respon.forEach(rr => {
                             if (p.id_publi == resp.id_publi && rr.id_resposta == resp.id_resposta) {
+                              var RespostasRed = document.querySelector('.respostasRespostass').cloneNode(true)
+                              RespostasRed.classList.remove('modal')
                               RespostasRed.querySelector('#avatarRes').src = '../../../assets/' + us.img
                               RespostasRed.querySelector('#userRes').innerHTML = us.user_name
                               RespostasRed.querySelector('#ResRes').innerHTML = rr.resposta_res
@@ -364,30 +364,33 @@ function fecharresposta() {
   fr.classList.add('modal')
 }
 
-function Favoritando(){
+function Favoritando() {
+  var imgF = document.querySelector('#naoFavorito')
+
   var responder = {
     "id_user": id,
     "id_publi": id_publicacao,
   }
- console.log(responder)
+  console.log(responder)
 
-  // fetch('http://localhost:3000/criarResposta', {
-  //   'method': 'POST',
-  //   'headers': {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   'body': JSON.stringify(responder)
-  // })
+  fetch('http://localhost:3000/criarFavoritos', {
+    'method': 'POST',
+    'headers': {
+      'Content-Type': 'application/json'
+    },
+    'body': JSON.stringify(responder)
+  })
+    .then(response => response.status)
+    .then(response => {
+      if (response == 201) {
 
-  //   .then(response => response.status)
-  //   .then(response => {
-  //     if (response == 201) {
-  //       alert("Resposta publicada com sucesso")
+        imgF.setAttribute('src', "../../../assets/favoritado.png")
+        console.log(imgF)
 
-  //     } else {
-  //       alert('Falha ao publicar resposta')
-  //     }
-  //   })
-  //   .catch(err => console.error(err));
+      } else {
+        alert('Falha ao favoritar')
+      }
+    })
+    .catch(err => console.error(err));
 }
 

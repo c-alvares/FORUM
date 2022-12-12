@@ -73,17 +73,21 @@ insert into temas value(default, 'Bolos', 'bolo.png'), (default, 'Tortas', 'tort
 SELECT * FROM temas;
 
 
-insert into publicacoes value(default, 2, 1, 'O bolo não cresceu, um ultraje ! quero reembolso' );
+insert into publicacoes value(default, 2, 1, 'O bolo nao cresceu, um ultraje ! quero reembolso' );
 insert into publicacoes value(default, 2, 2, 'A massa queimou !' );
 
 SELECT * FROM publicacoes;
 
 
-insert into respostas value(default, 1, 'É simples, o leite tem que estar morno, e deixar descansar por no minimo 1h30 ajuda bastante.');
+insert into respostas value(default, 1, 'Você abriu o forno antes de 20 minutos?');
+insert into respostas value(default, 2, 'Vish, sinto muito...');
 SELECT * FROM respostas;
 
 
-insert into respostas_resp value(default, 1, 'Muito Obrigado!!');
+insert into respostas_resp value(default, 1, 'Sim, cara. Fui fiscalizar...');
+insert into respostas_resp value(default, 1, 'Provavelmente foi por isso. ');
+insert into respostas_resp value(default, 2, 'Tenta novamente ');
+
 SELECT * FROM respostas_resp;
 
 
