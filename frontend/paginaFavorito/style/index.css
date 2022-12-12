@@ -5,7 +5,7 @@
 }
 
 header{
-    background-color: antiquewhite;
+    background-color: #ffdced;
     height: 4vh;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@ header{
 }
 
 body{
-    background-color: rgb(237, 207, 168);
+    background-color: #ffe5f2;
     width: 100%;
 }
 
@@ -64,9 +64,10 @@ a> img:hover{
     height: 80vh;
     width: 30vw;
     position: absolute;
-    background-color: #fbf0d0;
+    background-color:#ffe5f2;
     margin: 4% 37%;
     border-radius: 10%;
+    box-shadow: 3px 3px 3px 3px #fabfdc;
   
 }
 
@@ -93,4 +94,10 @@ a> img:hover{
 .imgU{
     display: flex;
     gap: 40%;
+}
+
+#casinha{
+    height: 30px;
+    width: 30px;
+    padding-top: 2px;;
 }
