@@ -243,7 +243,7 @@ function carregarCards() {
                 publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
                 publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
                 publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-
+                
                 document.querySelector('nav').appendChild(publicacoes)
               }
             })
