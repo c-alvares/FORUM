@@ -36,6 +36,15 @@ header {
     /* background-image: url(../../../../assets/lupa.png) no-repeat scroll 7px 7px;
     padding-left:30px; */
 }
+#btPesquisar{
+    height: 5vh;
+    border: none;
+    background-color:#ffe5f2;
+    border-radius: 5vw;
+    position: absolute;
+    left: 67vw;
+    top: 6.4vh;
+}
 
 #btCriarTema {
     height: 7.395993836671803vh;
@@ -397,8 +406,9 @@ nav>.publicacoes {
     .publicandorespostas{
         margin: 70vh 7vw;
     }
+}
 
-
-
-
+.modal3 {
+    display: none;
+    visibility: hidden;
 }
