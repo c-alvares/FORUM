@@ -384,5 +384,21 @@ nav>.publicacoes {
     padding: 10px;
 }
 
+@media(max-width: 1900vw){
+    nav > .publicacoes{
+        top: -55vh;
+    }   
+
+    .respostasRespostass{
+        top: 35vh;
+        left: 37vw;
+    }
+
+    .publicandorespostas{
+        margin: 70vh 7vw;
+    }
 
 
+
+
+}

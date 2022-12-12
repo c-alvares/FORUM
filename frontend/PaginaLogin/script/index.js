@@ -30,7 +30,7 @@ fetch('http://localhost:3000/forum/listar')
                         certo = true;
                         localStorage.setItem('username', login.user_name)
                         window.location.href = "../paginaHome/home.html"
-                        window.localStorage.setItem('id_user', login.id_user)
+                        localStorage.setItem('id_user', login.id_user)
 
                     } else {
                         certo = false

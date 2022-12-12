@@ -1,12 +1,12 @@
-var fechar = document.querySelector('#fechar')
-var img = document.querySelector('#avatar')
-var favoritos = document.querySelector('#favoritos')
-var abrirModal = document.querySelector('.abrirE')
-var user = document.querySelector('#user')
+// var fechar = document.querySelector('#fechar')
+// var img = document.querySelector('#avatar')
+// var favoritos = document.querySelector('#favoritos')
+var abrirModal = document.querySelector('.abrir')
+// var user = document.querySelector('#user')
 var publi = document.querySelector('#publi')
 var divFavoritos = document.querySelector('.divFavoritos')
-var fecharFav = document.querySelector('#fecharFav')
-var avatar = document.querySelector('#avatarU')
+// var fecharFav = document.querySelector('#fecharFav')
+// var avatar = document.querySelector('#avatarU')
 var id = localStorage.getItem('id_user')
 
 function carregar() {
@@ -14,7 +14,6 @@ function carregar() {
         .then(resp => { return resp.json() })
         .then(data => {
             data.forEach(d => {
-                if (d.id_user == id) {
                         if (d.id_user == id) {
                             divFavoritos.classList.remove('model')
                             fetch('http://localhost:3000/listarPublicacoes')
@@ -46,14 +45,7 @@ function carregar() {
                                 })
                         }
                     
-                }
+                
             })
-        });
-
-
-    fecharFav.addEventListener('click', () => {
-        divFavoritos.classList.add('model')
-        var abrirDiv = document.querySelector('.abrir')
-        abrirDiv.classList.add('model')
-    })
+        }); 
 }
