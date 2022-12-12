@@ -8,33 +8,60 @@ var caminhoResp = document.querySelector('.caminhoResp')
 let barra = document.querySelector('#barra');
 let tabelaPesquisa = document.querySelector('.tabelaPesquisa');
 
+barra.addEventListener('submit', () => {
 
-// barra.addEventListener('input', () => {
-//   let iniciarBusca = {
-//     "nome": barra.value
-//   }
-const options = {
-  method: 'GET'
-  // 'headers': {'Content-Type': 'application/json'},
-  // 'body': JSON.stringify(iniciarBusca)
-};
+  const options = {method: 'GET'};
 
-fetch('http://localhost:3000/listarTemas', options)
+  let uri = 'http://localhost:3000/pesquisarTemas/' + barra.value;
+  console.log(uri)
+  fetch(uri, options)
+    .then(response => response.json())
+    .then(response => {
+      response.forEach(temaPesquisado => {
+        let abrirDiv = document.querySelector('.linhaPesquisa').cloneNode(true)
+        abrirDiv.classList.remove('modal2')
+        abrirDiv.querySelector('#celulaPesquisa').innerHTML = temaPesquisado.nome
 
-  .then(response => response.json())
-  .then(response => {
-    response.forEach(temaPesquisado => {
-      let abrirDiv = document.querySelector('.linhaPesquisa').cloneNode(true)
-      abrirDiv.classList.remove('modal2')
-      abrirDiv.querySelector('#celulaPesquisa').innerHTML = temaPesquisado.nome
-
-      tabelaPesquisa.appendChild(abrirDiv)
+        tabelaPesquisa.appendChild(abrirDiv)
+      })
     })
-  })
-  .catch(err => console.error(err));
+    .catch(err => console.error(err));
+})
 
 
+// how to create search bar?
+// <script>
+// var a = document.getElementById('tfnewsearch');
+// a.addEventListener('submit',function(e) {
+// e.preventDefault();
+// var b = document.getElementById('tftextinput').value;
+// window.location.href = 'http://mywebsite.com/'+b;
 
+// });
+
+// </script>
+
+
+// <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120">
+
+
+// <div id="tfheader">
+//     <form id="tfnewsearch" method="get" action="http://www.mywebsite.com">
+//         <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+//     </form>
+// <div class="tfclear"></div>
+// </div>
+
+// <script>
+//     var a = document.getElementById('tfnewsearch');
+//     a.addEventListener('submit',function(e) {
+//         e.preventDefault();
+//         var b = document.getElementById('tftextinput').value;
+//         window.location.href = 'http://mywebsite.com/'+b;
+
+//     });
+
+// </script>
 
 
 

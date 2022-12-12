@@ -11,7 +11,7 @@ const listarTemas = (req, res) => {
 }
 
 const pesquisarTemas = (req, res) => {
-    con.query(ligacao.buscarTemas(req.body), (err, result) => {
+    con.query(ligacao.buscarTemas(req.params), (err, result) => {
         if (err == null)
             if (result.length > 0)
                 res.json(result).end();

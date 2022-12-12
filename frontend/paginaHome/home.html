@@ -24,12 +24,14 @@
         <div id="barraBusca">
             <input id="barra" type="search" name="buscar" id="busca" placeholder="      Pesquisar">
         </div>
+
         <button onclick="modalCriarTema()" id="btCriarTema">Criar Tema</button>
     </header>
     <main>
         <div class="barraSuperior">
             <h2>Escolha um tema ou crie um novo</h2>
         </div>
+
         <nav class="perguntasTemas">
             <div class="listaCards">
                 <div class="card1 clone1">
@@ -92,19 +94,22 @@
         <img id="instagram" class="redeSocial" src="../../../assets/instagram.png" alt="instagram.png">
         <img id="pinterest" class="redeSocial" src="../../../assets/pinterest.png" alt="pinteres.png">
     </div>
-    <div class="modalPesquisa modal">
+
+    <div class="modalPesquisa">
         <table class="tabelaPesquisa">
             <tr class="linhaPesquisa modal2">
                 <td id="celulaPesquisa">teste barra de pesquisa</td>
             </tr>
         </table>
     </div>
+
     <div class="modalTema modal1">
         <input id="inputTema" type="text" placeholder="Digite um tema">
         <input id="inputImg" type="text" alt="insira imagem">
         <img class="fechar" onclick="fecharModalTema()" src="../../../assets/fechar.png" alt="fechar.png">
         <button id="criar">Criar</button>
     </div>
+
 </body>
 <script src="./script/homeScript.js"></script>
 <script src="../global/globalScript.js"></script>
