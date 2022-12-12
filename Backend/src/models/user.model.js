@@ -1,5 +1,5 @@
 const novoUsuario = (model) => {
-    return `INSERT INTO user VALUES (DEFAULT,'${model.user_name}','${model.nome}','${model.email}','${model.senha}')`;
+    return `INSERT INTO user VALUES (DEFAULT,'${model.user_name}','${model.nome}','${model.email}','${model.senha}', 'jurandir.png', 2)`;
 }
 
 const login = (model) => {

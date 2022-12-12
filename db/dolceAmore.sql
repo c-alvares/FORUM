@@ -92,8 +92,3 @@ SELECT * FROM favoritos;
 
 
 SELECT * FROM user INNER JOIN favoritos ON user.id_user = favoritos.id_user;
-
-
-
-
-

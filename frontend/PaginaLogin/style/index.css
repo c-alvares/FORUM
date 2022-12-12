@@ -193,7 +193,7 @@ button:hover:after{
 #nome, #nomeC,
 #senhaR, #senhaC1,
 #senhaCon, #emailC {
-    width: 8vw;
+    width: 12vw;
     height: 4vh;
     margin-top: 0.9244992295839753vh;
     
@@ -219,12 +219,12 @@ li{
     position: absolute;
     cursor: pointer;
     left: 5vw;
-    top: 17.2vh;
+    top: 23.2vh;
 }
 
 .atualizar, .cadastrar {
     background-color: #ffe5f2;
-    height: 40vh;
+    height: 50vh;
     width: 30vw;
     gap: 1.5408320493066257vh;
     display: flex;
