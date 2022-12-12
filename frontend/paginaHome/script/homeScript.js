@@ -7,15 +7,19 @@ let barraPesquisa = document.querySelector('#barra');
 var caminhoResp = document.querySelector('.caminhoResp')
 let barra = document.querySelector('#barra');
 let tabelaPesquisa = document.querySelector('.tabelaPesquisa');
+let abrirDiv = document.querySelector('.linhaPesquisa')
+let celulaPesquisa = document.querySelector('#celulaPesquisa')
+let modalPesquisa = document.querySelector('.modalPesquisa')
+let tela = document.querySelector('.tela');
 var userPadrao = ''
 var id_publicacao = 0
 var avatarUsuario = ''
 var id_respostas = 0
 var id = localStorage.getItem('id_user')
 
-barra.addEventListener('submit', () => {
 
-  const options = { method: 'GET' };
+function pesquisarTemas() {
+  const options = {method: 'GET'};
 
   let uri = 'http://localhost:3000/pesquisarTemas/' + barra.value;
   console.log(uri)
@@ -23,7 +27,7 @@ barra.addEventListener('submit', () => {
     .then(response => response.json())
     .then(response => {
       response.forEach(temaPesquisado => {
-        let abrirDiv = document.querySelector('.linhaPesquisa').cloneNode(true)
+        abrirDiv.cloneNode(true)
         abrirDiv.classList.remove('modal2')
         abrirDiv.querySelector('#celulaPesquisa').innerHTML = temaPesquisado.nome
 
@@ -31,44 +35,117 @@ barra.addEventListener('submit', () => {
       })
     })
     .catch(err => console.error(err));
-})
+
+    document.addEventListener('click', event => {
+      const isClickInside = celulaPesquisa.contains(event.target)
+    
+      if(!isClickInside) {
+        abrirDiv.classList.add('modal2')
+      }
+
+      // modalPesquisa.addEventListener('click', () => {
+      //   const options = { method: 'GET' };
+        
+      //   fetch(uri, options)
+      //     .then(response => response.json())
+      //     .then(response => {
+      //       response.forEach(tema => {
+      //         let abrirDiv = document.querySelector('.card1').cloneNode(true)
+      //         abrirDiv.classList.remove('clone1')
+      //         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
+      //         abrirDiv.querySelector('#tema').innerHTML = tema.nome
+      
+      //         listaCards.appendChild(abrirDiv)
+      //       })
+      //     })
+      //     .catch(err => console.error(err));
+      
+      //   fetch('http://localhost:3000/forum/listar')
+      //     .then(response => response.json())
+      //     .then(response => {
+      //       response.forEach(usuario => {
+      //         avatar.src = '../../../assets/' + usuario.img
+      //       })
+      //       fetch('http://localhost:3000/listarPublicacoes')
+      //         .then(response => response.json())
+      //         .then(response => {
+      //           response.forEach(p => {
+      //             fetch('http://localhost:3000/forum/listar')
+      //               .then(response => response.json())
+      //               .then(response => {
+      //                 response.forEach(user => {
+      //                   if (p.id_user == user.id_user) {
+      //                     let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+      //                     publicacoes.classList.remove('modal');
+      //                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+      //                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
+      //                     console.log()
+      //                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
+      
+      //                     document.querySelector('nav').appendChild(publicacoes)
+      //                   }
+      //                 })
+      //               })
+      //           })
+      //         })
+      //     })
+      // })
+
+    })
+}
 
 
-// how to create search bar?
-// <script>
-// var a = document.getElementById('tfnewsearch');
-// a.addEventListener('submit',function(e) {
-// e.preventDefault();
-// var b = document.getElementById('tftextinput').value;
-// window.location.href = 'http://mywebsite.com/'+b;
-
-// });
-
-// </script>
 
 
-// <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120">
 
 
-// <div id="tfheader">
-//     <form id="tfnewsearch" method="get" action="http://www.mywebsite.com">
-//         <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
-//     </form>
-// <div class="tfclear"></div>
-// </div>
+function carregarCards() {
+  const options = { method: 'GET' };
 
-// <script>
-//     var a = document.getElementById('tfnewsearch');
-//     a.addEventListener('submit',function(e) {
-//         e.preventDefault();
-//         var b = document.getElementById('tftextinput').value;
-//         window.location.href = 'http://mywebsite.com/'+b;
+  fetch('http://localhost:3000/listarTemas', options)
+    .then(response => response.json())
+    .then(response => {
+      response.forEach(tema => {
+        let abrirDiv = document.querySelector('.card1').cloneNode(true)
+        abrirDiv.classList.remove('clone1')
+        abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
+        abrirDiv.querySelector('#tema').innerHTML = tema.nome
 
-//     });
+        listaCards.appendChild(abrirDiv)
+      })
+    })
+    .catch(err => console.error(err));
 
-// </script>
+  fetch('http://localhost:3000/forum/listar')
+    .then(response => response.json())
+    .then(response => {
+      response.forEach(usuario => {
+        avatar.src = '../../../assets/' + usuario.img
+      })
+      fetch('http://localhost:3000/listarPublicacoes')
+        .then(response => response.json())
+        .then(response => {
+          response.forEach(p => {
+            fetch('http://localhost:3000/forum/listar')
+              .then(response => response.json())
+              .then(response => {
+                response.forEach(user => {
+                  if (p.id_user == user.id_user) {
+                    let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+                    publicacoes.classList.remove('modal');
+                    publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+                    publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
+                    console.log()
+                    publicacoes.querySelector("#userPubli").innerHTML = user.user_name
 
-
+                    document.querySelector('nav').appendChild(publicacoes)
+                  }
+                })
+              })
+          })
+        })
+    })
+}
 
 function publicarResposta() { //ok
   var responderRe = document.querySelector('#inppublicar')
@@ -130,6 +207,7 @@ btCriarTema.addEventListener('click', () => {
     .catch(err => console.error(err));
 })
 
+function VisualizarRespostas() {
 
 function carregarCards() {
   const options = { method: 'GET' };
@@ -261,7 +339,6 @@ function visualizarRespResp() {
     })
 }
 
-
 const modalCriarTema = () => {
   let modal = document.querySelector('.modalTema');
   modal.classList.remove('modal1');
@@ -272,7 +349,6 @@ const fecharModalTema = () => {
   modal.classList.add('modal1');
 }
 
-
 function fecharResp() {
   let c = document.querySelector('.caminhoResp')
   let r = document.querySelector('.RespostasRes')
@@ -281,7 +357,6 @@ function fecharResp() {
 
 
 }
-
 
 function fecharresposta() {
   let fr = document.querySelector('.respostasRespostass')
@@ -316,3 +391,4 @@ function Favoritando(){
   //   .catch(err => console.error(err));
 }
 
+}
