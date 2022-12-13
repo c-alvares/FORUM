@@ -2,6 +2,16 @@ const readPublicacoes = () => {
     return 'SELECT * FROM Publicacoes;'
 }
 
+const readView = (modal) => {
+    return `SELECT * FROM View_UserPublicacoes WHERE id_publi = ${modal.id_publi};`
+}
+
+const ReadView = () => {
+    return `SELECT * FROM View_UserPublicacoes;`
+}
+
+
+
 const buscarPublicacao = (model) => {
     return `SELECT * FROM Publicacoes WHERE publicacoes LIKE '%${model.publicacoes}%'`;
 }
@@ -22,5 +32,7 @@ module.exports = {
     buscarPublicacao,
     deletePublicacoes,
     createPublicacoes,
-    editarPublicacoes
+    editarPublicacoes,
+    readView,
+    ReadView
 }

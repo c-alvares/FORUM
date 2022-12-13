@@ -25,9 +25,10 @@
             <input id="barra" type="search" name="buscar" id="busca" placeholder="Digite o tema de interesse">
             <img id="btPesquisar" onclick="pesquisarTemas()" src="../../assets/lupa.png" alt="botão de pesquisa">
         </div>
-        
 
+        
         <button onclick="modalCriarTema()" id="btCriarTema">Criar Tema</button>
+        <button onclick="modalCriarpublicacao()" id="btCriarpubli">Criar Publicação</button>
     </header>
     <main>
         <div class="barraSuperior">
@@ -41,74 +42,72 @@
                     <a id="tema">Teste</a>
                 </div>
             </div>
-            
+
             <div class="publicacoes modal">
-                <img src="../../assets/naofavoritado.png" alt="nFavoritado" id="naoFavorito" onclick="Favoritando()">
+               
                 <div id="usuario">
                     <img id="avatarPubli" alt="avatar.png">
                     <p id="userPubli">Username </p>
                 </div>
                 <p id="publicacao"></p>
-                <div id="RR" onclick="VisualizarRespostas()">Visualizar Respostas...</div>
+                <!-- <div id="RR" onclick="VisualizarRespostas()">Visualizar Respostas...</div> -->
             </div>
         </nav>
 
-            <div class="caminhoResp modal">
-                <div id="arrumandoQuadrado">
-                    <img onclick='fecharResp()' class="fecharR" src="../../../assets/fechar.png" alt="fechar.png">
-                     <p id='resPergunta'></p>
-                    <div class='RespostasRes modal'>
-                        <div class="quadradro1">
-                            <div class="usuarioRespode">
-                                <img id="avatarPubli" alt="avatar.png">
-                                <p id='usuarioPergunta'>Usuario</p>
-                            </div>
-                             <p id='resp'></p>
-                            <p id="visualizarRespostasRespostas" onclick="visualizarRespResp()">Visualizar Respostas...</p>
+        <div class="caminhoResp modal">
+            <div id="arrumandoQuadrado">
+                <img onclick='fecharResp()' class="fecharR" src="../../../assets/fechar.png" alt="fechar.png">
+                <p id='resPergunta'></p>
+                <div class='RespostasRes modal'>
+                    <div class="quadradro1">
+                        <div class="usuarioRespode">
+                            <img id="avatarPubli" alt="avatar.png">
+                            <p id='usuarioPergunta'>Usuario</p>
                         </div>
+                        <p id='resp'></p>
 
-                        <div class="respostasRespostass modal" >
-                            <img onclick='fecharresposta()' class="fecharRespostas" src="../../../assets/fechar.png" alt="fechar.png">
-                            <div class='alinhando'>
-                            <img id="avatarRes" alt="avatar res"/>
+                    </div>
+
+                    <div class="respostasRespostass modal">
+                        <img onclick='fecharresposta()' class="fecharRespostas" src="../../../assets/fechar.png" alt="fechar.png" />
+                        <div class='alinhando'>
+                            <img id="avatarRes" alt="avatar res" />
                             <p id="userRes"></p>
-                        </div> 
-                            <p id="ResRes"></p>
                         </div>
-                    </div> 
-                    <div class='publicandorespostas'>
-                        <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
-                        <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
+                        <p id="ResRes"></p>
                     </div>
                 </div>
-            </div>
-            </div>
-        </div>
-                         <p id='resp'></p>
-                        <p id="visualizarRespostasRespostas" onclick="visualizarRespResp()">Visualizar Respostas...</p>
-                    </div>
-                       
-                  
-                </div> 
                 <div class='publicandorespostas'>
                     <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
                     <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
                 </div>
             </div>
-            <div class="respostasRespostass modal" >
-                <img onclick="fecharresposta()" class="fecharRespostas" src="../../../assets/fechar.png" alt="fecharr.png">
-                <div class='alinhando'>
-                <img id="avatarRes" alt="avatar res"/>
-                <p id="userRes"></p>
-            </div> 
-                <p id="ResRes"></p>
-            </div>
         </div>
         
 
+        <div class='publicandorespostas'>
+            <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
+            <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
+        </div>
 
+        <div class="respostasRespostass modal">
+            <img onclick="fecharresposta()" class="fecharRespostas" src="../../../assets/fechar.png" alt="fecharr.png">
+            <div class='alinhando'>
+                <img id="avatarRes" alt="avatar res" />
+                <p id="userRes"></p>
+            </div>
+            <p id="ResRes"></p>
+        </div>
+        
 
-
+        <div class="criarPubli modal">
+            <img class="fecharModalPu" src="../../../assets/fechar.png" alt="fechar.png">
+            <div>
+                <input type="text" name="id" id="id_tema" placeholder="Tema">
+                <input type="text" name="id" id="publi"   placeholder="Publicacao">
+            </div>
+            <button type="submit" onclick="criarPublicacao()">Publicar</button>
+        </div>
     </main>
     <div class="menuLateral modal">
         <img id="avatar" alt="avatar.png">
@@ -131,7 +130,7 @@
 
     <div class="modalTema modal1">
         <input id="inputTema" type="text" placeholder="Digite um tema">
-        <input id="inputImg" type="text" alt="insira imagem"placeholder='img'>
+        <input id="inputImg" type="text" alt="insira imagem" placeholder='img'>
         <img class="fechar" onclick="fecharModalTema()" src="../../../assets/fechar.png" alt="fechar.png">
         <button id="criar">Criar</button>
     </div>

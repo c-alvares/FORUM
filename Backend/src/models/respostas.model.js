@@ -2,6 +2,14 @@ const listarRespostas = () => {
     return 'SELECT * FROM Respostas;'
 }
 
+const readViewResp = (modal) => {
+    return `SELECT * FROM View_PubliRespostas WHERE id_publi = ${modal.id_publi};`
+}
+
+const listarRespostasId = (model) => {
+    return `SELECT * FROM Respostas where id_publi = ${model.id_publi};`
+}
+
 const criarRespostas  = (model) => {
     return `INSERT INTO Respostas VALUES (default, '${model.id_publi}', '${model.resposta}');`
 }
@@ -17,5 +25,7 @@ module.exports = {
     listarRespostas,
     criarRespostas,
     excluirRespostas,
-    EditarRespostas
+    EditarRespostas,
+    listarRespostasId,
+    readViewResp
 }

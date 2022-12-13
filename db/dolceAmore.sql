@@ -56,6 +56,28 @@ create table respostas_resp(
     CONSTRAINT fk_resp foreign key (id_resposta) references respostas(id_resposta)
 );
 
+
+
+drop view if exists View_UserPublicacoes;
+create view View_UserPublicacoes as 
+select u.id_user, u.user_name, u.img, p.id_publi, p.id_tema, p.publicacoes from
+user u inner join publicacoes p on u.id_user = p.id_user;
+
+drop view if exists View_PubliRespostas;
+create view View_PubliRespostas as 
+select u.id_user, u.user_name, u.img, p.id_publi, p.publicacoes, r.resposta, r.id_resposta from
+user u inner join publicacoes p on u.id_user = p.id_user
+inner join respostas r on p.id_publi = r.id_publi;
+
+drop view if exists View_PubliRespResp;
+create view View_PubliRespResp as 
+select u.id_user, u.user_name, u.img, p.id_publi, p.publicacoes, r.id_resposta, rr.resposta_res from
+user u inner join publicacoes p on u.id_user = p.id_user
+inner join respostas r on p.id_publi = r.id_publi
+inner join respostas_resp rr on r.id_resposta = rr.id_resposta;
+
+select * from View_PubliRespResp;
+
 insert into cargos value (default, "admin");
 insert into cargos value (default, "user");
 

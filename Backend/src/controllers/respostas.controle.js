@@ -9,6 +9,22 @@ const listarRespostas = (req, res) => {
             res.status(500).end();
     });
 }
+const listarRespostasId = (req, res) => {
+    con.query(ligacao.listarRespostasId(req.params), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
+const listarRespostasView = (req, res) => {
+    con.query(ligacao.readViewResp(req.params), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
 
 const criarRespostas = (req, res) => {
     con.query(ligacao.criarRespostas(req.body), (err, result) => {
@@ -49,5 +65,7 @@ module.exports = {
     listarRespostas,
     criarRespostas,
     excluirRespostas,
-    editarespostas 
+    editarespostas,
+    listarRespostasId,
+    listarRespostasView
 }

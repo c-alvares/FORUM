@@ -10,6 +10,23 @@ const listarPublicacoes = (req, res) => {
     });
 }
 
+const listarViewGeral = (req, res) => {
+    con.query(Interligacao.ReadView(req.body), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
+const listarView = (req, res) => {
+    con.query(Interligacao.readView(req.params), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
+
 const pesquisarPublicacoes = (req, res) => {
     con.query(Interligacao.buscarPublicacao(req.body), (err, result) => {
         if (err == null)
@@ -62,5 +79,7 @@ module.exports = {
     pesquisarPublicacoes,
     excluirPublicacao,
     createPublicacoes,
-    editarPublicacao
+    editarPublicacao,
+    listarView,
+    listarViewGeral
 }

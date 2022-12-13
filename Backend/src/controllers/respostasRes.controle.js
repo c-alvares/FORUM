@@ -9,6 +9,14 @@ const listarRespostasRes = (req, res) => {
             res.status(500).end();
     });
 }
+const listarRespostasResR = (req, res) => {
+    con.query(ligacao.readViewRespR(req.params), (err, result) => {
+        if (err == null)
+            res.json(result).end();
+        else
+            res.status(500).end();
+    });
+}
 
 const criarRespostasRes = (req, res) => {
     con.query(ligacao.criarRespostas(req.body), (err, result) => {
@@ -49,5 +57,6 @@ module.exports = {
     listarRespostasRes,
     criarRespostasRes,
     excluirRespostasRes,
-    editarespostasRes 
+    editarespostasRes,
+    listarRespostasResR
 }

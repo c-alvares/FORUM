@@ -95,57 +95,46 @@ function pesquisarTemas() {
 }
 
 
+// function carregarCards() {
+//   const options = { method: 'GET' };
 
+//   fetch('http://localhost:3000/listarTemas', options)
+//     .then(response => response.json())
+//     .then(response => {
+//       response.forEach(tema => {
+//         let abrirDiv = document.querySelector('.card1').cloneNode(true)
+//         abrirDiv.classList.remove('clone1')
+//         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
+//         abrirDiv.querySelector('#tema').innerHTML = tema.nome
 
+//         listaCards.appendChild(abrirDiv)
+//       })
+//     })
+//     .catch(err => console.error(err));
+//       fetch('http://localhost:3000/listarPublicacoes')
+//         .then(response => response.json())
+//         .then(response => {
+//           response.forEach(p => {
+//             fetch('http://localhost:3000/forum/listar')
+//               .then(response => response.json())
+//               .then(response => {
+//                 response.forEach(user => {
+//                   if (p.id_user == user.id_user) {
+//                     let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+//                     publicacoes.classList.remove('modal');
+//                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
+//                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
+//                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
+                   
 
-
-function carregarCards() {
-  const options = { method: 'GET' };
-
-  fetch('http://localhost:3000/listarTemas', options)
-    .then(response => response.json())
-    .then(response => {
-      response.forEach(tema => {
-        let abrirDiv = document.querySelector('.card1').cloneNode(true)
-        abrirDiv.classList.remove('clone1')
-        abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
-        abrirDiv.querySelector('#tema').innerHTML = tema.nome
-
-        listaCards.appendChild(abrirDiv)
-      })
-    })
-    .catch(err => console.error(err));
-
-  fetch('http://localhost:3000/forum/listar')
-    .then(response => response.json())
-    .then(response => {
-      response.forEach(usuario => {
-        avatar.src = '../../../assets/' + usuario.img
-      })
-      fetch('http://localhost:3000/listarPublicacoes')
-        .then(response => response.json())
-        .then(response => {
-          response.forEach(p => {
-            fetch('http://localhost:3000/forum/listar')
-              .then(response => response.json())
-              .then(response => {
-                response.forEach(user => {
-                  if (p.id_user == user.id_user) {
-                    let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-                    publicacoes.classList.remove('modal');
-                    publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
-                    publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
-                    console.log()
-                    publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-
-                    document.querySelector('nav').appendChild(publicacoes)
-                  }
-                })
-              })
-          })
-        })
-    })
-}
+//                     document.querySelector('nav').appendChild(publicacoes)
+//                   }
+//                 })
+//               })
+//           })
+//         })
+    
+// }
 
 function publicarResposta() { //ok
   var responderRe = document.querySelector('#inppublicar')
@@ -177,7 +166,6 @@ function publicarResposta() { //ok
 
 
 }
-
 
 
 
@@ -226,30 +214,23 @@ function carregarCards() {
     })
 
     .catch(err => console.error(err));
-
-  fetch('http://localhost:3000/listarPublicacoes')
+  fetch('http://localhost:3000/listarView')
     .then(response => response.json())
     .then(response => {
-      response.forEach(p => {
-        id_publicacao = p.id_publi
+      response.forEach(lv => {
+        let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
+        publicacoes.classList.remove('modal');
+        publicacoes.querySelector('#publicacao').innerHTML = lv.publicacoes;
+        publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + lv.img
+        publicacoes.querySelector("#userPubli").innerHTML = lv.user_name
+        publicacoes.innerHTML += `<div id="RR" onclick="VisualizarRespostas(${lv.id_publi})">Visualizar Respostas...</div>`
+        publicacoes.innerHTML += ` <img src="../../assets/naofavoritado.png" alt="nFavoritado" id="naoFavorito" onclick="Favoritando(${lv.id_publi})">`
 
-        fetch('http://localhost:3000/forum/listar')
-          .then(response => response.json())
-          .then(response => {
-            response.forEach(user => {
-              if (p.id_user == user.id_user) {
-                let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-                publicacoes.classList.remove('modal');
-                publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
-                publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
-                publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-                
-                document.querySelector('nav').appendChild(publicacoes)
-              }
-            })
-          })
+        document.querySelector('nav').appendChild(publicacoes)
       })
     })
+
+
   fetch('http://localhost:3000/forum/listar')
     .then(response => response.json())
     .then(response => {
@@ -260,83 +241,93 @@ function carregarCards() {
     })
 }
 
-function VisualizarRespostas() {
-  fetch('http://localhost:3000/listarPublicacoes')
+function VisualizarRespostas(id_publi) {
+  fetch(`http://localhost:3000/listarRespostaView/${id_publi}`)
     .then(response => response.json())
     .then(response => {
-      response.forEach(p => {
-        var per = document.querySelector('#resPergunta')
-        per.innerHTML = p.publicacoes
-        fetch('http://localhost:3000/listarResposta')
-          .then(response => response.json())
-          .then(response => {
-            response.forEach(resp => {
-              fetch('http://localhost:3000/forum/listar')
-                .then(response => response.json())
-                .then(response => {
-                  response.forEach(us => {
-                    avatar.src = '../../../assets/' + us.img
-                    if (p.id_user == us.id_user) {
-                      if (p.id_publi == resp.id_publi) {
-                        console.log(resp.id_publi)
-                        var caminhoResp = document.querySelector('.caminhoResp')
-                        caminhoResp.classList.remove('modal')
-                        var resposta = document.querySelector('.RespostasRes').cloneNode(true)
-                        resposta.classList.remove('modal')
+      if (response[0] == undefined) {
+        alert("Sem comentarios")
+      } else {
+        document.querySelector('#arrumandoQuadrado').innerHTML = `<img onclick='fecharResp()' class="fecharR" src="../../../assets/fechar.png" alt="fechar.png">
+        <p id='resPergunta'></p>
+       <div class='RespostasRes modal'>
+           <div class="quadradro1">
+               <div class="usuarioRespode">
+                   <img id="avatarPubli" alt="avatar.png">
+                   <p id='usuarioPergunta'>Usuario</p>
+               </div>
+                <p id='resp'></p>
+               <p id="visualizarRespostasRespostas" onclick="visualizarRespResp(${id_publi})">Visualizar Respostas...</p>
+           </div>
 
-                        resposta.querySelector('#avatarPubli').src = '../../../assets/' + us.img
-                        resposta.querySelector('#usuarioPergunta').innerHTML = us.user_name
-                        resposta.querySelector('#resp').innerHTML = resp.resposta
+           <div class="respostasRespostass modal" >
+               <img onclick='fecharresposta()' class="fecharRespostas" src="../../../assets/fechar.png" alt="fechar.png">
+               <div class='alinhando'>
+               <img id="avatarRes" alt="avatar res"/>
+               <p id="userRes"></p>
+           </div> 
+               <p id="ResRes"></p>
+           </div>
+       </div> 
+       <div class='publicandorespostas'>
+           <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
+           <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
+       </div>`
+       id_publicacao = id_publi
+        response.forEach(vp => {
+          console.log(vp)
+        
+          var caminhoResp = document.querySelector('.caminhoResp')
+          caminhoResp.classList.remove('modal')
+          var resposta = document.querySelector('.RespostasRes').cloneNode(true)
+          resposta.classList.remove('modal')
+          resposta.querySelector('#avatarPubli').src = '../../../assets/' + vp.img
+          resposta.querySelector('#usuarioPergunta').innerHTML = vp.user_name
+          resposta.querySelector('#resp').innerHTML = vp.resposta
+          // resposta.innerHTML += `<p id="visualizarRespostasRespostas" onclick="visualizarRespResp(${vp.id_publi})">Visualizar Comentarios...</p>`
+          document.querySelector('#arrumandoQuadrado').appendChild(resposta)
 
-                        document.querySelector('#arrumandoQuadrado').appendChild(resposta)
-                      }else{
-                        console.log('err')
-                      }
-                    }
-                  })
-                })
-            })
-          })
+        })
+      }
+    })
+
+}
+function visualizarRespResp(id_publi) {
+  console.log(id_publi)
+  fetch(`http://localhost:3000/listarRespostaRes/${id_publi}`)
+    .then(response => response.json())
+    .then(respons => {
+      console.log(respons)
+      respons.forEach(us => {
+
+        var RespostasRed = document.querySelector('.respostasRespostass').cloneNode(true)
+        RespostasRed.classList.remove('modal')
+        RespostasRed.querySelector('#avatarRes').src = '../../../assets/' + us.img
+        RespostasRed.querySelector('#userRes').innerHTML = us.user_name
+        RespostasRed.querySelector('#ResRes').innerHTML = us.resposta_res
+
+        document.querySelector('.caminhoResp').appendChild(RespostasRed)
       })
+
+     
+
+
     })
 }
 
-function visualizarRespResp() {
-  fetch('http://localhost:3000/forum/listar')
-    .then(response => response.json())
-    .then(respons => {
-      respons.forEach(us => {
-        fetch('http://localhost:3000/listarPublicacoes')
-          .then(response => response.json())
-          .then(response => {
-            response.forEach(p => {
-              if (us.id_user == p.id_user) {
-                fetch('http://localhost:3000/listarResposta')
-                  .then(response => response.json())
-                  .then(response => {
-                    response.forEach(resp => {
-                      fetch('http://localhost:3000/listarRespostaRes')
-                        .then(response => response.json())
-                        .then(respon => {
-                          respon.forEach(rr => {
-                            if (p.id_publi == resp.id_publi && rr.id_resposta == resp.id_resposta) {
-                              var RespostasRed = document.querySelector('.respostasRespostass').cloneNode(true)
-                              RespostasRed.classList.remove('modal')
-                              RespostasRed.querySelector('#avatarRes').src = '../../../assets/' + us.img
-                              RespostasRed.querySelector('#userRes').innerHTML = us.user_name
-                              RespostasRed.querySelector('#ResRes').innerHTML = rr.resposta_res
+function modalCriarpublicacao(){
+  var abrir = document.querySelector('.criarPubli')
+  var fechar = document.querySelector('.fecharModalPu')
+  abrir.classList.remove('modal')
 
-                              document.querySelector('.caminhoResp').appendChild(RespostasRed)
-                            }
-                          })
-                        })
-                    })
-                  })
-              }
-            })
-          })
-      })
-    })
+  var iTema = document.querySelector('#tema')
+  var iPubli = document.querySelector('#publi')
+
+  fechar.addEventListener('click', () => {
+    abrir.classList.add('modal')
+  })
+
+
 }
 
 const modalCriarTema = () => {
@@ -358,18 +349,13 @@ function fecharResp() {
 
 }
 
-function fecharresposta() {
-  let fr = document.querySelector('.respostasRespostass')
-  console.log('funcionando eu to')
-  fr.classList.add('modal')
-}
 
-function Favoritando() {
+function Favoritando(id_publi) {
   var imgF = document.querySelector('#naoFavorito')
 
   var responder = {
     "id_user": id,
-    "id_publi": id_publicacao,
+    "id_publi": id_publi,
   }
   console.log(responder)
 
@@ -384,7 +370,7 @@ function Favoritando() {
     .then(response => {
       if (response == 201) {
 
-        imgF.setAttribute('src', "../../../assets/favoritado.png")
+        imgF.src = "../../../assets/favoritado.png"
         console.log(imgF)
 
       } else {
@@ -394,3 +380,8 @@ function Favoritando() {
     .catch(err => console.error(err));
 }
 
+function fecharresposta() {
+  let fr = document.querySelector('.respostasRespostass')
+  console.log('funcionando eu to')
+  fr.classList.add('modal')
+}
