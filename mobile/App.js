@@ -9,24 +9,24 @@ import Login from './src/screens/loginScreen/login';
 const Stack = createNativeStackNavigator();
 
 
-const Tab = createBottomTabNavigator();
+// const Tab = createBottomTabNavigator();
 
-function MyTabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Login" component={Login} />
-    </Tab.Navigator>
-  );
-}
+// function MyTabs() {
+//   return (
+//     <Tab.Navigator>
+//       <Tab.Screen name="Login" component={Login} />
+//     </Tab.Navigator>
+//   );
+// }
 
 export default function App() {
 
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} />     
-      </Stack.Navigator> */}
-      <MyTabs />
+      </Stack.Navigator>
+      {/* <MyTabs /> */}
     </NavigationContainer>
   )
 }

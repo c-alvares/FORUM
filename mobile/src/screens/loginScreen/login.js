@@ -6,10 +6,15 @@ import styles from './styles/style';
 
 export default function Login() {
 
-
     return (
         <View style={styles.container}>
-            <Text>Teste</Text>
+            <View style={styles.divQuadro}>
+                <View style={styles.divCirculo}>
+                    <Text style={styles.titulo}>Olá, docinho</Text>
+                    <TextInput style={styles.input}></TextInput>
+                    <TextInput style={styles.input}></TextInput>
+                </View>
+            </View>
         </View>
     )
 }
