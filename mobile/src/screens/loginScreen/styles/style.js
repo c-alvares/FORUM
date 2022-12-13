@@ -18,10 +18,13 @@ export default StyleSheet.create({
         height: '40vh',
         borderRadius: '20vw',
         backgroundColor: '#d3fffb',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     titulo: {
         fontFamily: 'Berkshire Swash',
+        alignItems: 'center',
     },
     input: {
         width: '65vw',
