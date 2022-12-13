@@ -11,10 +11,7 @@ let abrirDiv = document.querySelector('.linhaPesquisa')
 let celulaPesquisa = document.querySelector('#celulaPesquisa')
 let modalPesquisa = document.querySelector('.modalPesquisa')
 let tela = document.querySelector('.tela');
-var userPadrao = ''
-var id_publicacao = 0
-var avatarUsuario = ''
-var id_respostas = 0
+var id_publi = ''
 var id = localStorage.getItem('id_user')
 
 
@@ -125,7 +122,7 @@ function pesquisarTemas() {
 //                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
 //                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
 //                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-                   
+
 
 //                     document.querySelector('nav').appendChild(publicacoes)
 //                   }
@@ -133,7 +130,7 @@ function pesquisarTemas() {
 //               })
 //           })
 //         })
-    
+
 // }
 
 function publicarResposta() { //ok
@@ -235,7 +232,6 @@ function carregarCards() {
     .then(response => response.json())
     .then(response => {
       response.forEach(us => {
-
         avatar.src = '../../../assets/' + us.img
       })
     })
@@ -273,10 +269,10 @@ function VisualizarRespostas(id_publi) {
            <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
            <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
        </div>`
-       id_publicacao = id_publi
+        id_publicacao = id_publi
         response.forEach(vp => {
           console.log(vp)
-        
+
           var caminhoResp = document.querySelector('.caminhoResp')
           caminhoResp.classList.remove('modal')
           var resposta = document.querySelector('.RespostasRes').cloneNode(true)
@@ -309,19 +305,50 @@ function visualizarRespResp(id_publi) {
         document.querySelector('.caminhoResp').appendChild(RespostasRed)
       })
 
-     
+
 
 
     })
 }
 
-function modalCriarpublicacao(){
+function modalCriarpublicacao() {
   var abrir = document.querySelector('.criarPubli')
   var fechar = document.querySelector('.fecharModalPu')
   abrir.classList.remove('modal')
 
-  var iTema = document.querySelector('#tema')
+  var iTema = document.querySelector('#id_tema')
   var iPubli = document.querySelector('#publi')
+  var publicarPubli = document.querySelector('#publicarPubli')
+
+ 
+  publicarPubli.addEventListener('click', () => {
+    var publicar = {
+      'id_user': id,
+      'id_tema': iTema.value,
+      'publicacoes': iPubli.value
+    }
+     console.log(publicar)
+  
+    fetch('http://localhost:3000/createPublicacoes', {
+      'method': 'POST',
+      'headers': {
+        'Content-Type': 'application/json'
+      },
+      'body': JSON.stringify(publicar)
+    })
+      .then(response => response.status)
+      .then(response => {
+        if (response == 201) {
+          alert("Publicação cadastrada com sucesso")
+          window.location.reload()
+        } else {
+          alert('Falha ao cadastrar nova publicação')
+        }
+      })
+      .catch(err => console.error(err));
+
+  })
+
 
   fechar.addEventListener('click', () => {
     abrir.classList.add('modal')
@@ -384,4 +411,5 @@ function fecharresposta() {
   let fr = document.querySelector('.respostasRespostass')
   console.log('funcionando eu to')
   fr.classList.add('modal')
+  fr.innerHTML = ''
 }
