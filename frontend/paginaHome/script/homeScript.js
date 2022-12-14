@@ -40,98 +40,11 @@ function pesquisarTemas() {
       abrirDiv.classList.add('modal2')
     }
 
-    // modalPesquisa.addEventListener('click', () => {
-    //   const options = { method: 'GET' };
-
-    //   fetch(uri, options)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //       response.forEach(tema => {
-    //         let abrirDiv = document.querySelector('.card1').cloneNode(true)
-    //         abrirDiv.classList.remove('clone1')
-    //         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
-    //         abrirDiv.querySelector('#tema').innerHTML = tema.nome
-
-    //         listaCards.appendChild(abrirDiv)
-    //       })
-    //     })
-    //     .catch(err => console.error(err));
-
-    //   fetch('http://localhost:3000/forum/listar')
-    //     .then(response => response.json())
-    //     .then(response => {
-    //       response.forEach(usuario => {
-    //         avatar.src = '../../../assets/' + usuario.img
-    //       })
-    //       fetch('http://localhost:3000/listarPublicacoes')
-    //         .then(response => response.json())
-    //         .then(response => {
-    //           response.forEach(p => {
-    //             fetch('http://localhost:3000/forum/listar')
-    //               .then(response => response.json())
-    //               .then(response => {
-    //                 response.forEach(user => {
-    //                   if (p.id_user == user.id_user) {
-    //                     let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-    //                     publicacoes.classList.remove('modal');
-    //                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
-    //                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
-    //                     console.log()
-    //                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-
-    //                     document.querySelector('nav').appendChild(publicacoes)
-    //                   }
-    //                 })
-    //               })
-    //           })
-    //         })
-    //     })
-    // })
-
   })
 }
 
 
-// function carregarCards() {
-//   const options = { method: 'GET' };
 
-//   fetch('http://localhost:3000/listarTemas', options)
-//     .then(response => response.json())
-//     .then(response => {
-//       response.forEach(tema => {
-//         let abrirDiv = document.querySelector('.card1').cloneNode(true)
-//         abrirDiv.classList.remove('clone1')
-//         abrirDiv.querySelector('#pic1').src = '../../../assets/' + tema.foto
-//         abrirDiv.querySelector('#tema').innerHTML = tema.nome
-
-//         listaCards.appendChild(abrirDiv)
-//       })
-//     })
-//     .catch(err => console.error(err));
-//       fetch('http://localhost:3000/listarPublicacoes')
-//         .then(response => response.json())
-//         .then(response => {
-//           response.forEach(p => {
-//             fetch('http://localhost:3000/forum/listar')
-//               .then(response => response.json())
-//               .then(response => {
-//                 response.forEach(user => {
-//                   if (p.id_user == user.id_user) {
-//                     let publicacoes = document.querySelector('.publicacoes').cloneNode(true);
-//                     publicacoes.classList.remove('modal');
-//                     publicacoes.querySelector('#publicacao').innerHTML = p.publicacoes;
-//                     publicacoes.querySelector("#avatarPubli").src = '../../../assets/' + user.img
-//                     publicacoes.querySelector("#userPubli").innerHTML = user.user_name
-
-
-//                     document.querySelector('nav').appendChild(publicacoes)
-//                   }
-//                 })
-//               })
-//           })
-//         })
-
-// }
 
 function publicarResposta() { //ok
   var responderRe = document.querySelector('#inppublicar')
@@ -153,6 +66,7 @@ function publicarResposta() { //ok
     .then(response => {
       if (response == 201) {
         alert("Resposta publicada com sucesso")
+        window.location.reload()
 
       } else {
         alert('Falha ao publicar resposta')
@@ -232,7 +146,10 @@ function carregarCards() {
     .then(response => response.json())
     .then(response => {
       response.forEach(us => {
-        avatar.src = '../../../assets/' + us.img
+        if(us.id_user == id){
+          avatar.src = '../../../assets/' + us.img
+        }
+        
       })
     })
 }
@@ -242,7 +159,36 @@ function VisualizarRespostas(id_publi) {
     .then(response => response.json())
     .then(response => {
       if (response[0] == undefined) {
-        alert("Sem comentarios")
+        document.querySelector('#arrumandoQuadrado').innerHTML = `<img onclick='fecharResp()' class="fecharR" src="../../../assets/fechar.png" alt="fechar.png">
+        <p id='resPergunta'></p>
+       <div class='RespostasRes modal'>
+           <div class="quadradro1">
+               <div class="usuarioRespode">
+                   <img id="avatarPubli" alt="avatar.png">
+                   <p id='usuarioPergunta'>Usuario</p>
+               </div>
+                <p id='resp'></p>
+               <p id="visualizarRespostasRespostas" onclick="visualizarRespResp(${id_publi})">Visualizar Respostas...</p>
+           </div>
+
+           <div class="respostasRespostass modal" >
+               <img onclick='fecharresposta()' class="fecharRespostas" src="../../../assets/fechar.png" alt="fechar.png">
+               <div class='alinhando'>
+               <img id="avatarRes" alt="avatar res"/>
+               <p id="userRes"></p>
+           </div> 
+               <p id="ResRes"></p>
+           </div>
+       </div> 
+       <div class='publicandorespostas'>
+           <input id="inppublicar" type='text' placeholder='Escreva um comentario...'>
+           <button id='btnPublicarRepResp' onclick='publicarResposta()'>Publicar</button>
+       </div>`
+        id_publicacao = id_publi
+        var caminhoResp = document.querySelector('.caminhoResp')
+          caminhoResp.classList.remove('modal')
+          var resposta = document.querySelector('.RespostasRes').cloneNode(true)
+          resposta.classList.remove('modal')
       } else {
         document.querySelector('#arrumandoQuadrado').innerHTML = `<img onclick='fecharResp()' class="fecharR" src="../../../assets/fechar.png" alt="fechar.png">
         <p id='resPergunta'></p>

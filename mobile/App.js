@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Login from './src/screens/loginScreen/login';
+import Home from './src/screens/homeScreen/home';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,7 +24,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home} />     
         <Stack.Screen name="Login" component={Login} />     
       </Stack.Navigator>
       {/* <MyTabs /> */}

@@ -34,4 +34,12 @@ export default StyleSheet.create({
         margin: '2vh',
         boxShadow: '0rem 0.25rem 0.25rem rgb(252 156 156 / 25%)',
     },
+    btn : {
+        width: '25vw',
+        height: '5vh',
+        backgroundColor: 'pink',
+        textAlign: 'center',
+        justifyContent: 'center',
+        borderRadius: '20px'
+    }
 });

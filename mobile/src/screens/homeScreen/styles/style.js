@@ -4,8 +4,63 @@ export default StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#FFFFFF',
+    },
+    header: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
+    logo: {
+        height: '20vw',
+        width: '20vw'
+    },
+    divQuadro: {
+        width: '75vw',
+        height: '40vh',
+        borderRadius: '5vw',
+        backgroundColor: '#FFE5F2',
+    },
+    divCirculo: {
+        width: '75vw',
+        height: '40vh',
+        borderRadius: '20vw',
+        backgroundColor: '#d3fffb',
         alignItems: 'center',
         justifyContent: 'center'
     },
+
+    titulo: {
+        fontFamily: 'Berkshire Swash',
+        alignItems: 'center',
+    },
+    input: {
+        width: '65vw',
+        height: '5vh',
+        borderRadius: '2vw',
+        backgroundColor: '#FFFFFF',
+        margin: '2vh',
+        boxShadow: '0rem 0.25rem 0.25rem rgb(252 156 156 / 25%)',
+    },
+    btn : {
+        width: '25vw',
+        height: '5vh',
+        backgroundColor: 'pink',
+        textAlign: 'center',
+        justifyContent: 'center',
+        borderRadius: '20px'
+    },
+    retangulo:{
+        width: '100vw',
+        height: '8vh',
+        backgroundColor: 'pink',
+        textAlign: 'center',
+        justifyContent: 'center',
+    },
+    texto:{
+        color: 'blue'
+    },
+    coluna:{
+        display: 'flex'
+    }
 
 });

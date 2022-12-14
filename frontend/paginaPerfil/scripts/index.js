@@ -64,31 +64,35 @@ function carregar() {
     editar.addEventListener('click', () => {
         abrirModal.classList.remove('model')
         var ConfirmarSenha = document.querySelector('#senhaCon')
-        var username = document.querySelector('#InputUsername')
-        var name = document.querySelector('#Inputnome')
-        var senha = document.querySelector('#senhaR')
-        var img = document.querySelector('#img')
+        var username1 = document.querySelector('#InputUsername')
+        var name1 = document.querySelector('#Inputnome')
+        var senha1 = document.querySelector('#senhaR')
+        var img1 = document.querySelector('#img')
         var atualizar = document.querySelector('#atualizar')
 
         fetch('http://localhost:3000/forum/listar')
         .then(resp => { return resp.json() })
         .then(data=> {
             data.forEach(d => {
-                username.value = d.user_name
-                name.value = d.nome
-                senha.value = d.senha
+                username1.value = d.user_name
+                name1.value = d.nome
+                senha1.value = d.senha
                 ConfirmarSenha.value = d.senha
-                img.value = d.img
+                img1.value = d.img
             })
         })
+        
+       
+
         atualizar.addEventListener('click', () => {
-                if (senha.value == ConfirmarSenha.value) {
+                if (senha1.value == ConfirmarSenha.value) {
                     let alterar = {
-                        'user_name': username.value,
-                        'nome': nome.value,
-                        "senha": senha.value,
-                        "img": img.value
+                        'user_name': username1.value,
+                        'nome': name1.value,
+                        "senha": senha1.value,
+                        "img": img1.value
                     }
+                    console.log(alterar)
                     fetch('http://localhost:3000/forum/profile', {
                         "method": 'PUT',
                         "headers": {

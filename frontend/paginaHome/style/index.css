@@ -60,9 +60,28 @@ header {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
+#btnPublicarRepResp{
+    height: 5vh;
+    width:8vw;
+    background-color: #FCEFDA;
+    border: none;
+    border-radius: 2vw;
+    color: #9DCAFF;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 1.25rem;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+#inppublicar{
+    width: 15vw;
+    height: 6vh;
+    border-radius: 30px;
+}
+
 #btCriarTema:hover,
 #btCriarpubli:hover,
-#publicarPubli {
+#publicarPubli:hover,
+#btnPublicarRepResp:hover {
     background-color: #ffe5f2;
     color: #D3FFFB;
     cursor: pointer;
@@ -373,12 +392,13 @@ nav>.publicacoes {
 
 .publicandorespostas {
     display: flex;
-    position:absolute;
+    position: absolute;
     justify-content: center;
-    margin: 65vh 7vw;
-    border: 1px solid;
-    width: 20vw;
-    height: 5vh;
+    margin: 65vh 9vw;
+    width: 25vw;
+    height: 6vh;
+    border-radius: 20px;
+    background-color: white;
 }
 
 .respostasRespostass{
@@ -400,7 +420,7 @@ nav>.publicacoes {
 
 @media(max-width: 1900vw){
     nav > .publicacoes{
-        top: -55vh;
+        top: -49vh;
     }   
 
     .respostasRespostass{
