@@ -53,19 +53,19 @@ input {
     border-radius: 2vw;
 }
 
-.inputs{
+.inputs {
     display: flex;
     flex-direction: column;
-    gap: 5vh;
-    margin: 18vh 5.5vw;
+    gap: 3vh;
+    margin: 26vh 6.5vw;
 }
 
 #esqueceuSenha {
     position: absolute;
     width: 9.809663250366032vw;
     height: 2.9275808936825887vh;
-    left: 12vw;
-    top: 57vh;
+    left: 17vw;
+    top: 63vh;
 
     font-family: 'Berkshire Swash';
     font-style: normal;
@@ -84,8 +84,8 @@ input {
     position: absolute;
     width: 9.809663250366032vw;
     height: 2.9275808936825887vh;
-    left: 12vw;
-    top: 63vh;
+    left: 17vw;
+    top: 70vh;
 
     font-family: 'Berkshire Swash';
     font-style: normal;
@@ -101,13 +101,19 @@ input {
 }
 
 button {
-   position: absolute;
+    position: absolute;
     width: 35%;
     height: 8.474576271186441vh;
-    left: 10vw;
-    top: 46vh;;
+    left: 14vw;
+    top: 50vh;
+    background-color: #FFE5F2;
+    /* border-radius: 25px; */
+    transition: .4s ease-in;
+    z-index: 1;
+    cursor: pointer;
+    
 
-     background-color: #FFE5F2;;
+    background-color: #FFE5F2;
     /* border-radius: 25px; */
     transition: .4s ease-in;
     z-index: 1;
@@ -115,49 +121,49 @@ button {
 }
 
 button::before,
-button::after{
+button::after {
     position: absolute;
     content: "";
     z-index: 1;
     background-color: #ffc0cb;
 }
 
-button::after{
+button::after {
     height: 100%;
     left: -0%;
     top: 0;
-    transform:skew(2deg);
+    transform: skew(2deg);
     transition-duration: 0.6s;
-    transform-origin: left top ;
+    transform-origin: left top;
     width: 0;
-   
+
 }
 
-button:hover:after{
+button:hover:after {
     position: absolute;
     height: 100%;
     width: 100%;
     cursor: pointer;
 }
 
-#vazioEmail{
+#vazioEmail {
     margin: 19vh -14vw 1vw -1vw;
     font-size: 0.75rem;
-    color:red;
+    color: red;
 }
 
-#vazioSenha{
+#vazioSenha {
     margin: 30vh -15vw 0 -1vw;
     font-size: 0.75rem;
-    color:red;
+    color: red;
 }
 
-#userErrado{
+#userErrado {
     margin: 33vw -13vw 0 0;
     font-size: 0.938;
 }
 
-#glace{
+#glace {
     position: absolute;
     display: block;
     width: calc(100% + 0.0951683748169839vw);
@@ -166,53 +172,61 @@ button:hover:after{
     border-radius: 40% 40% 40% 40%;
 }
 
-@media(max-width: 146.41288433382138vw){
-    #glace{
+@media(max-width: 146.41288433382138vw) {
+    #glace {
         position: absolute;
         display: block;
         width: calc(100% + 0.0951683748169839vw);
-        height: 57.5vh;
+        height: 86.5vh;
         background-color: #d3fffb;
         border-radius: 40% 40% 40% 40%;
     }
 
-    a{
+    a {
         top: 40vh;
     }
 
-    #userErrado{
+    #userErrado {
         margin: 24vw -15vw 0 0;
     }
 
-  
+
 
 }
 
 /* Redefinir a senha */
-#username, #usernameC,
-#nome, #nomeC,
-#senhaR, #senhaC1,
-#senhaCon, #emailC {
+#username,
+#usernameC,
+#nome,
+#nomeC,
+#senhaR,
+#senhaC1,
+#senhaCon,
+#emailC {
     width: 12vw;
     height: 4vh;
     margin-top: 0.9244992295839753vh;
-    
+
     background: #FFFFFF;
     box-shadow: 0rem 0.25rem 0.25rem rgba(252, 156, 156, 0.25);
     border-radius: 2vw;
 }
 
-li{
+li {
     list-style: none;
     margin-top: -5vh;
 }
- .abrir, .modalCadastro {
+
+.abrir,
+.modalCadastro {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color:#fdf4df ;
+    background-color: #fdf4df;
 }
-#atualizar, #cadastrar {
+
+#atualizar,
+#cadastrar {
     width: 8vw;
     height: 4vh;
     margin: 49vh 42vw;
@@ -222,7 +236,8 @@ li{
     top: 23.2vh;
 }
 
-.atualizar, .cadastrar {
+.atualizar,
+.cadastrar {
     background-color: #ffe5f2;
     height: 50vh;
     width: 30vw;
@@ -236,14 +251,16 @@ li{
     border-radius: 2.5vw;
 
     position: absolute;
-} 
+}
 
-.modal, .modalC {
+.modal,
+.modalC {
     display: none;
     visibility: hidden;
 }
 
-#fechar, #fecharC{
+#fechar,
+#fecharC {
     height: 1.5vh;
     position: absolute;
     top: 3.5vh;

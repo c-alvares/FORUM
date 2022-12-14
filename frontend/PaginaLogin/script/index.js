@@ -26,7 +26,7 @@ fetch('http://localhost:3000/forum/listar')
                     InputsVaziosSenha.innerHTML = "Por favor, preencha o campo acima!"
                     nav.classList.add('a-jump-bounce')
                 } else {
-                    if (InputEmail.value == login.user_name || InputEmail.value == login.email && InputSenha.value == login.senha) {
+                    if ((InputEmail.value == login.user_name || InputEmail.value == login.email) && InputSenha.value == login.senha) {
                         certo = true;
                         localStorage.setItem('username', login.user_name)
                         window.location.href = "../paginaHome/home.html"
@@ -34,9 +34,12 @@ fetch('http://localhost:3000/forum/listar')
 
                     } else {
                         certo = false
-                        nav.classList.add('a-jump-bounce')
-                        loginErrado.innerHTML = 'Login ou senha incorretos!'
+                       
                     }
+                }
+
+                if(!certo ){
+                    nav.classList.add('a-jump-bounce')
                 }
 
             })
@@ -110,8 +113,11 @@ function AbrirModalCadastro() {
                 'user_name': usernameC.value,
                 'nome': nameC.value,
                 'email': emailC.value,
-                'senha': senhaC.value
+                'senha': senhaC.value,
+                'img': 'jurandir.png'
             }
+
+            console.log(cadastrarUser)
                 fetch('http://localhost:3000/forum/cadastrar', {
                     "method": 'POST',
                     "headers": {

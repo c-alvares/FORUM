@@ -76,6 +76,7 @@ user u inner join publicacoes p on u.id_user = p.id_user
 inner join respostas r on p.id_publi = r.id_publi
 inner join respostas_resp rr on r.id_resposta = rr.id_resposta;
 
+
 select * from View_PubliRespResp;
 
 insert into cargos value (default, "admin");

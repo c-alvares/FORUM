@@ -10,42 +10,40 @@ var divFavoritos = document.querySelector('.divFavoritos')
 var id = localStorage.getItem('id_user')
 
 function carregar() {
-    fetch('http://localhost:3000/forum/listar')
-        .then(resp => { return resp.json() })
-        .then(data => {
-            data.forEach(d => {
-                        if (d.id_user == id) {
+  
                             divFavoritos.classList.remove('model')
                             fetch('http://localhost:3000/listarPublicacoes')
                                 .then(resp => { return resp.json() })
                                 .then(pub => {
                                     pub.forEach(p => {
-                                        if (d.id_user == p.id_user) {
-                                            fetch('http://localhost:3000/listarFavoritos')
-                                                .then(resp => { return resp.json() })
-                                                .then(fav => {
-                                                    fav.forEach(f => {
-                                                        var abrirDiv = document.querySelector('.abrir').cloneNode(true)
-                                                        abrirDiv.classList.remove('model')
-                                                        if (p.id_publi == f.id_publi) {
-                                                            console.log(f)
-                                                            abrirDiv.querySelector('#avatarU').src = '../../../../assets/' + d.img
-                                                            abrirDiv.querySelector('#user').innerHTML = d.user_name
-                                                            abrirDiv.querySelector('#publi').innerHTML = p.publicacoes
+                                       
+                            divFavoritos.classList.remove('model')
 
-                                                            divFavoritos.appendChild(abrirDiv)
-
-
-                                                        }
-                                                    })
-                                                })
-                                        }
-
+                            fetch('http://localhost:3000/listarFavoritos')
+                                .then(resp => { return resp.json() })
+                                .then(fav => {
+                                    fav.forEach(f => {
+                                      if(f.id_publi == p.id_publi){
+                                        var abrirDiv = document.querySelector('.abrir').cloneNode(true)
+                                        abrirDiv.classList.remove('model')
+                                
+                                        console.log(f)
+                                        abrirDiv.querySelector('#avatarU').src = '../../../../assets/' + f.img
+                                        abrirDiv.querySelector('#user').innerHTML = f.user_name
+                                        abrirDiv.querySelector('#publi').innerHTML = p.publicacoes
+                        
+                                        divFavoritos.appendChild(abrirDiv)
+                                    }
+                        
+                                    })
                                     })
                                 })
+                                })
                         }
+                        
+
+                                //     })
+                                // })
+                        
                     
                 
-            })
-        }); 
-}
