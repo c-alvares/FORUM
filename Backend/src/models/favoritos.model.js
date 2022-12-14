@@ -1,5 +1,5 @@
 const listarFavoritos = () => {
-    return 'SELECT * FROM user INNER JOIN favoritos ON user.id_user = favoritos.id_user;'
+    return 'SELECT * FROM user_fav;'
 }
 
 const criarFavoritos  = (model) => {

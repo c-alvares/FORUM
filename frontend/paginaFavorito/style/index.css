@@ -42,7 +42,7 @@ a> img:hover{
     width: 2vw;
     height: 2vw;
     margin-top: 47vh;
-    margin-left: 150px;
+    margin-left: 120px;
 }
 
 .model {
@@ -83,7 +83,7 @@ a> img:hover{
 
 .abrir > div{
     text-align: center;
-    padding: 10px;
+    padding: 6px;
 } 
 
 #avatarU{

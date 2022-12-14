@@ -77,6 +77,13 @@ inner join respostas r on p.id_publi = r.id_publi
 inner join respostas_resp rr on r.id_resposta = rr.id_resposta;
 
 
+drop view if exists user_fav;
+create view user_fav as 
+select u.id_user, u.user_name, u.img, p.publicacoes, f.id_publi, f.id_user as 'Usuario' from
+user u inner join publicacoes p on u.id_user = p.id_user
+inner join  favoritos f on f.id_publi = p.id_publi;
+
+
 select * from View_PubliRespResp;
 
 insert into cargos value (default, "admin");

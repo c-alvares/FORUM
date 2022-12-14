@@ -13,6 +13,7 @@ let modalPesquisa = document.querySelector('.modalPesquisa')
 let tela = document.querySelector('.tela');
 var id_publi = ''
 var id = localStorage.getItem('id_user')
+var fecharrespresp = document.querySelector('.fecharRespostas')
 
 
 function pesquisarTemas() {
@@ -73,10 +74,37 @@ function publicarResposta() { //ok
       }
     })
     .catch(err => console.error(err));
-
-
-
 }
+
+function publiccarRespResp(e){
+  var responderRe = document.querySelector('#inppublicarRespResp')
+  var responder = {
+    "id_resposta": id_publicacao,
+    "resposta_res": responderRe.value
+  }
+
+
+  fetch('http://localhost:3000/criarRespostaRes', {
+    'method': 'POST',
+    'headers': {
+      'Content-Type': 'application/json'
+    },
+    'body': JSON.stringify(responder)
+  })
+
+    .then(response => response.status)
+    .then(response => {
+      if (response == 201) {
+        alert("Resposta publicada com sucesso")
+        window.location.reload()
+
+      } else {
+        alert('Falha ao publicar resposta')
+      }
+    })
+    .catch(err => console.error(err));
+}
+
 
 
 
@@ -239,22 +267,42 @@ function visualizarRespResp(id_publi) {
   fetch(`http://localhost:3000/listarRespostaRes/${id_publi}`)
     .then(response => response.json())
     .then(respons => {
+      document.querySelector('#arrumandoQuadrado').innerHTML = `
+      <img onclick='fecharRespResp()' src="../../../assets/fechar.png" alt="fechar.png" />
+      <div class="respostasRespostass model">
+          <div class='alinhando'>
+          <img id="avatarRes" alt="avatar res"/>
+          <p id="userRes"></p>
+      </div> 
+          <p id="ResRes"></p>
+      </div>
+    </div> 
+    <div class='publicandorespostas'>
+      <input id="inppublicarRespResp" type='text' placeholder='Escreva um comentario...'>
+      <button id='btnPublicarRepRespresp' onclick='publiccarRespResp(${id_publi})'>Publicar</button>
+    </div>`
+    
       console.log(respons)
       respons.forEach(us => {
 
         var RespostasRed = document.querySelector('.respostasRespostass').cloneNode(true)
-        RespostasRed.classList.remove('modal')
+        RespostasRed.classList.remove('model')
         RespostasRed.querySelector('#avatarRes').src = '../../../assets/' + us.img
         RespostasRed.querySelector('#userRes').innerHTML = us.user_name
         RespostasRed.querySelector('#ResRes').innerHTML = us.resposta_res
 
         document.querySelector('.caminhoResp').appendChild(RespostasRed)
+
+        
       })
-
-
-
-
     })
+   
+}
+
+function fecharRespResp(){
+  let fr = document.querySelector('.respostasRespostass')
+          console.log('funcionando eu to')
+          fr.classList.add('modal')
 }
 
 function modalCriarpublicacao() {
@@ -344,7 +392,7 @@ function Favoritando(id_publi) {
       if (response == 201) {
 
         imgF.src = "../../../assets/favoritado.png"
-        console.log(imgF)
+        
 
       } else {
         alert('Falha ao favoritar')
@@ -356,6 +404,6 @@ function Favoritando(id_publi) {
 function fecharresposta() {
   let fr = document.querySelector('.respostasRespostass')
   console.log('funcionando eu to')
-  fr.classList.add('modal')
+  fr.classList.add('model')
   fr.innerHTML = ''
 }
