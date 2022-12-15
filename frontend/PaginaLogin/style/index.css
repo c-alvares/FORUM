@@ -85,7 +85,7 @@ input {
     width: 9.809663250366032vw;
     height: 2.9275808936825887vh;
     left: 17vw;
-    top: 70vh;
+    top: 65vh;
 
     font-family: 'Berkshire Swash';
     font-style: normal;
@@ -177,7 +177,7 @@ button:hover:after {
         position: absolute;
         display: block;
         width: calc(100% + 0.0951683748169839vw);
-        height: 86.5vh;
+        height: 68.5vh;
         background-color: #d3fffb;
         border-radius: 40% 40% 40% 40%;
     }
