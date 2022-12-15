@@ -61,6 +61,9 @@ export default StyleSheet.create({
     },
     coluna:{
         display: 'flex'
-    }
+    },
+    img:{
+        width: '100px',
+    },
 
 });
