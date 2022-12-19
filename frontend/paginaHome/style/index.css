@@ -4,6 +4,30 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 600px) {
+    * {
+        flex-direction: Column;
+    }
+    header{
+        display: flex;      
+    }
+    #btCriarTema,
+    #btCriarpubli,
+    #publicarPubli{
+        height: 8vh;
+        width: 50vw;
+        background-color: #FCEFDA;
+        border: none;
+        border-radius: 2vw;
+        color: #9DCAFF;
+        font-family: 'Berkshire Swash', cursive;
+        font-size: 0.25rem;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+        margin: 1.5vh;
+    }
+
+}
+
 header {
     display: flex;
     justify-content: space-around;
